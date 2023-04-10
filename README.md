@@ -1,27 +1,28 @@
 # Ammattikissat
 
 
-One or two sentences that describe what the project does.
+This is a rudimentary cat battling game. It includes features such as training and battling. 
 
 ## About
 
-Instructions for getting a copy of the project up and running on your local machine.
+Clone the library and emulate in android studio and see how it does not work.
 
 ### Prerequisites
 
-What software is required before getting started with the project.
+Latest version of Android studio and android 11 / API 30 are required
 
 ### Demo
 
-Steps for installing the necessary software and getting the project up and running.
+There will be a demo video here: //to-do
 
 ## Usage
 
-Instructions for how to use the project and any relevant code examples.
+This is strictly for entertainment. Only enjoy the product.
 
 ## To-Do
 
-Guidelines for how to contribute to the project.
+- finalize project
+- demo video
 
 ## License
 
