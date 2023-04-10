@@ -29,8 +29,6 @@ This is strictly for entertainment. Only enjoy the product.
 MIT License Copyright (c) [2023] [Kolmen Hengen Tyhmä]
 ## Alpha 0.0.1 Cats:
 
-[UML Classdiagram](luokkakaavio.png)
-
 ### Töikissa (Raksa): “perus kissa”
 - Oranssi (tyhmä)
 - 20 lp.
@@ -65,3 +63,6 @@ Passive:
 
 ![meme](kissa.png)
 
+
+-
+![UML Classdiagram](luokkakaavio.png)
