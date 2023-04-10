@@ -61,7 +61,7 @@ Abilities:
 - 
 Passive:
 - Gona (Matala todennäköisyys väistää tuleva hyökkäys ~2%)
-- ???
+- ??
 
 ![meme](kissa.png)
 
