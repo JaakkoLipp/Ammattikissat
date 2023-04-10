@@ -58,3 +58,4 @@ Abilities:
 - 
 Passive:
 - Gona (Matala todennäköisyys väistää tuleva hyökkäys ~2%)
+- ???
