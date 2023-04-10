@@ -62,7 +62,6 @@ Passive:
 - ??
 
 ![meme](kissa.png)
+:
 
-
--
 ![UML Classdiagram](luokkakaavio.png)
