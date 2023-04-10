@@ -60,4 +60,4 @@ Passive:
 - Gona (Matala todennäköisyys väistää tuleva hyökkäys ~2%)
 - ???
 
-![Alt text](img.png)
+![Alt text](kissa.png)
