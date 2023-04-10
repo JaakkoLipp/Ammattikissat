@@ -28,6 +28,9 @@ Guidelines for how to contribute to the project.
 A short statement about the license of the project and any additional terms or conditions.
 
 ## Alpha 0.0.1 Cats:
+
+[UML Classdiagram](luokkakaavio.png)
+
 ### Töikissa (Raksa): “perus kissa”
 - Oranssi (tyhmä)
 - 20 lp.
@@ -60,6 +63,5 @@ Passive:
 - Gona (Matala todennäköisyys väistää tuleva hyökkäys ~2%)
 - ???
 
-![Alt text](kissa.png)
+![meme](kissa.png)
 
-[UML Classdiagram](luokkakaavio.png)
