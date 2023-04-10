@@ -61,3 +61,5 @@ Passive:
 - ???
 
 ![Alt text](kissa.png)
+
+![Alt text](luokkakaavio.png)
