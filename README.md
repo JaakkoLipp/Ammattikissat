@@ -62,4 +62,4 @@ Passive:
 
 ![Alt text](kissa.png)
 
-[Alt text](luokkakaavio.png)
+[UML Classdiagram](luokkakaavio.png)
