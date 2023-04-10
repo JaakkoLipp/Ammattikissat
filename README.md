@@ -25,8 +25,7 @@ Guidelines for how to contribute to the project.
 
 ## License
 
-A short statement about the license of the project and any additional terms or conditions.
-
+MIT License Copyright (c) [2023] [Kolmen Hengen Tyhmä]
 ## Alpha 0.0.1 Cats:
 
 [UML Classdiagram](luokkakaavio.png)
