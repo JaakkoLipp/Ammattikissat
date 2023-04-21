@@ -31,6 +31,7 @@ public class ProfessionalSchool {
     public void addCat(String colour, int currHP, int maxHP, int attackPower, int defencePower, double luck, ArrayList<String> statistics){
         Cat newCat;
         catStorageList.put(orderNumberCat, null);
+        orderNumberCat+=1;
     }
     public void healCat(int orderNumber){
         Cat catToHeal = chooseCat(orderNumber);
