@@ -11,4 +11,9 @@ public class RaksaMan extends Cat{
     public void uniqueAbility(){
         //TODO: implement unique
     }
+
+    public void raksaHeal() {//Unique heal: "Vastuunvälttö" //TODO : make appropriate names for heals ffs
+        this.currHP += 2;
+
+    }
 }

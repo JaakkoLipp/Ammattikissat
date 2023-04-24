@@ -27,6 +27,11 @@ This is strictly for entertainment. Only enjoy the product.
 ## License
 
 MIT License Copyright (c) [2023] [Kolmen Hengen Tyhmä]
+
+## Legal
+
+Project artwork created using 
+
 ## Alpha 0.0.1 Cats:
 
 ### Töikissa (Raksa): “perus kissa”
