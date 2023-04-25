@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 public class ElectricianMan extends Cat{
 
-    public ElectricianMan(String colour, int currHP, int maxHP, int attackPower, int defencePower, double luck, ArrayList<String> statistics) {
-        super(colour, currHP, maxHP, attackPower, defencePower, luck, statistics);
+    public ElectricianMan(String colour) {
+        super(colour, 20, 20, 5, 2, 1);
     }
     public void uniqueAbility(){
-        //TODO: implement unique
+        this.takeDMG(5);
+        this.attackPower+=5;
     }
 }
