@@ -19,7 +19,7 @@ public class Cat {
 
     private Random random = new Random();
     //constructor
-    public Cat(String colour, int currHP, int maxHP, int attackPower, int defencePower, double luck, ArrayList<String> matchHistory) {
+    public Cat(String colour, int currHP, int maxHP, int attackPower, int defencePower, double luck) {
         this.colour = colour;
         this.currHP = currHP;
         this.maxHP = maxHP;
@@ -33,10 +33,13 @@ public class Cat {
     }
     public void attack(Cat catToAttack) {
         if((random.nextInt(10)+this.luck) > 6){ // (33% + luck) = chance of critical hit
-            catToAttack.takeDMG(this.attackPower+1);// Critical hit deals +1 damage
+            catToAttack.takeDMG(this.attackPower+2);// Critical hit deals +1 damage
         }else{
             catToAttack.takeDMG(this.attackPower);
         }
+    }
+    public void uniqueAbility() {
+        //TODO : default unique ability?
     }
     public void takeDMG(int damage){
         damage=damage-(this.defencePower / 2);//Damage calculation
