@@ -10,6 +10,8 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
 
+    private ProfessionalSchool professionalSchool = ProfessionalSchool.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
