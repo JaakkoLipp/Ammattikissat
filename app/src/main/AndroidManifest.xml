@@ -12,9 +12,6 @@
         android:theme="@style/Theme.Ammattikissat"
         tools:targetApi="31">
         <activity
-            android:name=".ProfessionalSchool_Activity"
-            android:exported="false" />
-        <activity
             android:name=".Battlescreen_Activity"
             android:exported="false" />
         <activity
