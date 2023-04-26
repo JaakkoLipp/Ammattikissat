@@ -10,14 +10,14 @@ public class CarMan extends Cat{
     }
 
     @Override
-    public void attack(Cat catToAttack){//Overriding parent attack method to deal with special
+    public int getAttackDamage(){//Overriding parent attack method to deal with special
         if(abilityDuration > 0){
             abilityDuration=-1;
             if(abilityDuration<=0){//When ability duration 0
                 this.luck=0;//Set luck back to natural luck of 0
             }
         }
-        super.attack(catToAttack);
+        super.getAttackDamage();
     }
     @Override
 
