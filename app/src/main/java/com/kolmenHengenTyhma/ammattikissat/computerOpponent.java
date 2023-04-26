@@ -6,8 +6,8 @@ public class computerOpponent {
     Cat cat;
     private double propabilityAttack = 0.5; //all probabilities must sum to 1
     private double propabilityDefend = 0.3;
-    private double propabilityAbility = 0.1;
-    private double propabilityRun = 0.1;
+    private double propabilityAbility = 0.15;
+    private double propabilityRun = 0.05;
 
     public computerOpponent(){
         this.cat = new Cat("orange", 10, 10, 10, 10, 5);
