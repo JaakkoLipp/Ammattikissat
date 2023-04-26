@@ -10,7 +10,7 @@ public class ProfessionalSchool {
     private static ProfessionalSchool school = null;
 
     // Cat storage list
-    private HashMap<Integer, String> catStorageList = new HashMap<Integer, String>();
+    private HashMap<Integer, Cat> catStorageList = new HashMap<Integer, Cat>();
     private int orderNumberCat = 0;
 
     //Singleton
@@ -25,13 +25,12 @@ public class ProfessionalSchool {
 
     //Methods
 
-    public HashMap<Integer, String> getCatStorageList(){
+    public HashMap<Integer, Cat> getCatStorageList(){
         return catStorageList;
     }
 
     public Cat chooseCat(int orderNumber){
-        //TODO: return cat from storage
-        return null;
+        return catStorageList.get(2);
     }
     public void trainCat(Cat cat){
         cat.attackPower+=1;
