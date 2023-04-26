@@ -3,12 +3,19 @@ package com.kolmenHengenTyhma.ammattikissat.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.kolmenHengenTyhma.ammattikissat.Cat;
+import com.kolmenHengenTyhma.ammattikissat.ProfessionalSchool;
 import com.kolmenHengenTyhma.ammattikissat.R;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,7 +23,7 @@ import com.kolmenHengenTyhma.ammattikissat.R;
  * create an instance of this fragment.
  */
 public class CatRecycler extends Fragment {
-
+    private RecyclerView recyclerView;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -56,11 +63,23 @@ public class CatRecycler extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+/*
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_cat_recycler, container, false);
+    }
+ */
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_cat_recycler, container, false);
+        recyclerView = view.findViewById(R.id.CatRecyclerView);
+        //TODO: Pass Hashmap to fragment then pass to view holder then to adapter
+        HashMap<Integer, Cat> catStorageList = ProfessionalSchool.getInstance().getCatStorageList();
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(new CatAdapter(ProfessionalSchool.getInstance().getCatStorageList()));
+        return view;
     }
 }
