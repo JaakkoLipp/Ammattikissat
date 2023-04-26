@@ -43,19 +43,25 @@ public class CatAdapter extends RecyclerView.Adapter<CatViewHolder>{
         // idk i guess this works
         if (catStorageList.get(position) instanceof ElectricianMan){
             Type = "Sähkökissa";
+            holder.catPic.setImageResource(R.drawable.sahkissa_nobg);
         } else if (catStorageList.get(position) instanceof PipeMan) {
             Type = "LVI-kissa";
+            holder.catPic.setImageResource(R.drawable.putkissa_nobg);
         } else if (catStorageList.get(position) instanceof CarMan) {
             Type = "Autokissa";
+            holder.catPic.setImageResource(R.drawable.autokissa_nobg);
         } else if (catStorageList.get(position) instanceof LogisticsMan) {
             Type = "Logistiikkakissa";
+            holder.catPic.setImageResource(R.drawable.logiskissa_nobg);
         } else if (catStorageList.get(position) instanceof RaksaMan) {
             Type = "Raksakissa";
+            holder.catPic.setImageResource(R.drawable.raksakissa_nobg);
         } else {
             Type = "TöiKissa";
         }
         holder.catTypeText.setText(Type);
         holder.colourText.setText(catStorageList.get(position).getColour());
+
     }
 
     @Override
