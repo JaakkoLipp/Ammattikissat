@@ -17,7 +17,7 @@ public class CarMan extends Cat{
                 this.luck=0;//Set luck back to natural luck of 0
             }
         }
-        super.getAttackDamage();
+        return super.getAttackDamage();
     }
     @Override
 
