@@ -65,6 +65,7 @@ public class Cat {
             currHP = 0;
         }
     }
+
     public void heal() {//General restore health -method, NOT an ability!
         currHP = maxHP;
     }
@@ -128,5 +129,8 @@ public class Cat {
 
     public int getCurrHP(){
         return currHP;
+    }
+    public int getCurrHPinPercentage(){
+        return (currHP*100/maxHP*100)/100;
     }
 }
