@@ -21,8 +21,6 @@ public class HomeScreen extends AppCompatActivity {
         fragmentCRB.setOnClickListener(listener);
         fragmentInfoB.setOnClickListener(listener);
 
-        // TODO: is this ok to implement like this?
-        // Home is blank without this
         Fragment defaultFragment = new CatRecycler();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frame, defaultFragment)
