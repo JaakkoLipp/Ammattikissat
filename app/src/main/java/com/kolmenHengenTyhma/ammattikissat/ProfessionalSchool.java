@@ -37,7 +37,7 @@ public class ProfessionalSchool {
     }
 
     public Cat chooseCat(int orderNumber){
-        return catStorageList.get(2);
+        return catStorageList.get(orderNumber);
     }
     public void trainCat(Cat cat){
         cat.attackPower+=1;
