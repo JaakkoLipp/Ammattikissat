@@ -24,7 +24,7 @@ public class Battle {
         c1.defend();
     }
 
-    public void c1_unique(){
+    public void c1_ability(){
         c1.uniqueAbility();
 
     }
@@ -47,11 +47,19 @@ public class Battle {
         c2.defend();
     }
 
-    public void c2_unique(){
+    public void c2_ability(){
         c1.uniqueAbility();
     }
 
     public void c2_run(){
         c2HasRun = true;
+    }
+
+    public boolean isC1HasRun() {
+        return c1HasRun;
+    }
+
+    public boolean isC2HasRun() {
+        return c2HasRun;
     }
 }

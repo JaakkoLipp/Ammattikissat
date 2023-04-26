@@ -28,7 +28,7 @@
         app:srcCompat="@drawable/raksakissa_nobg" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btAbility"
         android:layout_width="151dp"
         android:layout_height="66dp"
         android:layout_marginStart="28dp"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btRun"
         android:layout_width="151dp"
         android:layout_height="66dp"
         android:layout_marginStart="240dp"
@@ -50,7 +50,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btAttack"
         android:layout_width="151dp"
         android:layout_height="66dp"
         android:layout_marginStart="28dp"
@@ -74,4 +74,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Raksakissa attack went up! (+1) " />
+
+    <Button
+        android:id="@+id/btDefend"
+        android:layout_width="151dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="728dp"
+        android:text="Defend"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

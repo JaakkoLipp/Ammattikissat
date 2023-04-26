@@ -35,9 +35,9 @@ public class Cat {
     public int getAttackDamage() {
         int damage;
         if((random.nextInt(10)+this.luck) > 6){ // (33% + luck) = chance of critical hit
-            damage = this.attackPower + 2 ;// Critical hit deals +1 damage
+            damage = attackPower + 2 ;// Critical hit deals +1 damage
         }else{
-            damage = this.attackPower;
+            damage = attackPower;
         }
 
         return damage;
@@ -75,5 +75,9 @@ public class Cat {
     }
     public boolean getIsInDefence(){
         return isInDefence;
+    }
+
+    public int getCurrHP(){
+        return currHP;
     }
 }
