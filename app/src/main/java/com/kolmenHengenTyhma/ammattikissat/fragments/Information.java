@@ -88,7 +88,7 @@ public class Information extends Fragment {
         //TODO: make a if else tree which sets the name of the cat based on the instance type
 
         //TODO: implement training button
-
+        //TODO: HEAL button
 
         tvCatName.setText(name + "aAAAAAaa"); //TODO: once cat integration works, remove aAAAAAaa
         tvWinLoss.setText("Voitot/Häviöt: " + wins + "/" + losses);
