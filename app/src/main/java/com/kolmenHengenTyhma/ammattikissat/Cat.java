@@ -70,13 +70,6 @@ public class Cat {
         currHP = maxHP;
     }
 
-
-
-
-
-
-
-
     public void setAttackPower(int attackPower) {
         this.attackPower = attackPower;
     }

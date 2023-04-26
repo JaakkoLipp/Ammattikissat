@@ -14,14 +14,17 @@ public class ProfessionalSchool {
     //Singleton
     private ProfessionalSchool() {
         // TODO: temp cats remove
-        ElectricianMan ELMAN = new ElectricianMan("Orange");
-        PipeMan POIPEMAN = new PipeMan("Not Orange");
-        CarMan REMONGER = new CarMan("Black");
-        POIPEMAN.takeDMG(10);
-        REMONGER.takeDMG(3);
+        ElectricianMan ELMAN = new ElectricianMan("Oranssi");
+        PipeMan POIPEMAN = new PipeMan("Not Oranssi");
+        RaksaMan REMONGER = new RaksaMan("Vaalea");
+        CarMan CARCAT = new CarMan("Tosi tumma");
+        POIPEMAN.takeDMG(5);
+        CARCAT.takeDMG(10);
         catStorageList.put(0,ELMAN);
         catStorageList.put(1, POIPEMAN);
         catStorageList.put(2,REMONGER);
+        catStorageList.put(3,CARCAT);
+
     }
     public static ProfessionalSchool getInstance() {
         if (school == null) {
@@ -31,6 +34,7 @@ public class ProfessionalSchool {
     }
 
     //Methods
+
     public HashMap<Integer, Cat> getCatStorageList(){
         return catStorageList;
     }
