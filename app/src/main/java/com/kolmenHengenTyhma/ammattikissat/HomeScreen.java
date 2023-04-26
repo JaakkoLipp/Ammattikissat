@@ -20,18 +20,27 @@ public class HomeScreen extends AppCompatActivity {
         Button fragmentInfoB = findViewById(R.id.informationButton);
         fragmentCRB.setOnClickListener(listener);
         fragmentInfoB.setOnClickListener(listener);
+
+        // TODO: is this ok to implement like this?
+        // Home is blank without this
+        Fragment defaultFragment = new CatRecycler();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame, defaultFragment)
+                .commit();
     }
+
     private View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View view){
             Fragment fragment;
-            switch(view.getId()){
-                case R.id.catRecyclerButton:
-                    fragment = new CatRecycler();break;
-                case R.id.informationButton:
-                    fragment = new Information();break;
-                default:
-                    fragment = new CatRecycler();break;
+            // gradle 8.0 doesn't like switch cases with R.id
+            int id = view.getId();
+            if (id == R.id.catRecyclerButton) {
+                fragment = new CatRecycler();
+            } else if (id == R.id.informationButton) {
+                fragment = new Information();
+            } else {
+                fragment = new CatRecycler();
             }
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.frame, fragment)
