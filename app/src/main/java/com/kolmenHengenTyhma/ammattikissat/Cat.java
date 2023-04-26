@@ -19,11 +19,6 @@ public class Cat {
     //TODO: changed everything private -> protected so subclass abilities can access stats, luck protected as well
 
     private Random random = new Random();
-
-    public int getCurrHP() {
-        return currHP;
-    }
-
     public String getColour() {
         return colour;
     }
