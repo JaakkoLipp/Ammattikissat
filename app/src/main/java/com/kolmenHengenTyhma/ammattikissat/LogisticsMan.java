@@ -3,12 +3,14 @@ package com.kolmenHengenTyhma.ammattikissat;
 import java.util.ArrayList;
 
 public class LogisticsMan extends Cat{
+    //atributes
     private int abilityDuration;
-
+    //constructor
     public LogisticsMan(String colour) {
         super(colour, 14, 14, 3, 4, 2);
     }
 
+    //actions
     @Override
     public int getAttackDamage(){//Overriding parent attack method to deal with special
         if(abilityDuration > 0){

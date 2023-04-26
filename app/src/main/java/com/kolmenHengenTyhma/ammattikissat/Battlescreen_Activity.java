@@ -17,7 +17,6 @@ public class Battlescreen_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battlescreen);
 
-
         Button btAttack = findViewById(R.id.btAttack);
         Button btDefend = findViewById(R.id.btDefend);
         Button btAbility = findViewById(R.id.btAbility);
@@ -49,53 +48,42 @@ public class Battlescreen_Activity extends AppCompatActivity {
         });
 
 
+
         new Thread(new Runnable() {
             Battle currentBattle = new Battle(playerCat);
 
             @Override
             public void run() {
-                do{ //battle loop
-
-
+                do{
                     if (btAttackPressed){ //player actions
                         currentBattle.c1_attack();
                         currentBattle.computerAction();
-
                     } else if (btDefendPressed){
                         currentBattle.c1_defend();
                         currentBattle.computerAction();
-
                     } else if (btAbilityPressed){
                         currentBattle.c1_ability();
                         currentBattle.computerAction();
-
                     } else if (btRunPressed){
                         currentBattle.c1_run();
                         currentBattle.computerAction();
-
                     }
 
-
                     if (currentBattle.isBattleEnded()){
-                        //TODO: end battle(battle ends when view ends)
+                        //TODO: end battle(currently battle ends when view ends)
                     }
 
                 } while (isViewOpen);
 
-                playerCat = currentBattle.getPlayerCat();
+                playerCat = currentBattle.getPlayerCat(); //set the player cat to be the one from battle after battle
 
             }
         });
-
-
-
     }
-
 
     @Override
     protected void onDestroy(){
         super.onDestroy();
         isViewOpen = false;
     }
-
 }

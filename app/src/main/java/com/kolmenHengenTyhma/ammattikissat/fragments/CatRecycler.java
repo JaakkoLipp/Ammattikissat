@@ -63,14 +63,7 @@ public class CatRecycler extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-/*
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cat_recycler, container, false);
-    }
- */
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cat_recycler, container, false);

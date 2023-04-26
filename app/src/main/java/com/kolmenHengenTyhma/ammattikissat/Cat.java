@@ -34,6 +34,8 @@ public class Cat {
         lostMatches = 0;
         this.trainedDays = 0;
     }
+
+    //actions
     public int getAttackDamage() {
         int damage;
         if((random.nextInt(10)+this.luck) > 6){ // (33% + luck) = chance of critical hit
@@ -44,7 +46,6 @@ public class Cat {
 
         return damage;
     }
-
     public boolean defend(){
         if (isInDefence){
             this.isInDefence = false;
@@ -53,7 +54,6 @@ public class Cat {
             return false;
         }
     }
-
     public void uniqueAbility() {
         //TODO: default unique ability?
     }
@@ -65,59 +65,48 @@ public class Cat {
             currHP = 0;
         }
     }
-
     public void heal() {//General restore health -method, NOT an ability!
         currHP = maxHP;
     }
 
+    //setters
     public void setAttackPower(int attackPower) {
         this.attackPower = attackPower;
     }
-
     public void setMatches(int matches) {
         this.matches = matches;
     }
-
     public void setWonMatches(int wonMatches) {
         this.wonMatches = wonMatches;
     }
-
     public void setLostMatches(int lostMatches) {
         this.lostMatches = lostMatches;
     }
 
+    //getters
     public int getMatches() {
         return matches;
     }
-
     public int getWonMatches() {
         return wonMatches;
     }
-
     public int getLostMatches() {
         return lostMatches;
     }
-
     public double getLuck() {
         return luck;
     }
-
     public String getColour() {
         return colour;
     }
-
     public int getMaxHP() {
         return maxHP;
     }
-
     public int getDefencePower() {
         return defencePower;
     }
     public int getAttackPower() {
         return attackPower;
-    }
-    public boolean getIsInDefence(){
-        return isInDefence;
     }
 
     public int getCurrHP(){
