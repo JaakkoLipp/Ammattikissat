@@ -17,11 +17,11 @@ public class ProfessionalSchool {
         ElectricianMan ELMAN = new ElectricianMan("Orange");
         PipeMan POIPEMAN = new PipeMan("Not Orange");
         CarMan REMONGER = new CarMan("Black");
-        POIPEMAN.takeDMG(5);
+        POIPEMAN.takeDMG(10);
+        REMONGER.takeDMG(3);
         catStorageList.put(0,ELMAN);
         catStorageList.put(1, POIPEMAN);
         catStorageList.put(2,REMONGER);
-
     }
     public static ProfessionalSchool getInstance() {
         if (school == null) {
@@ -31,7 +31,6 @@ public class ProfessionalSchool {
     }
 
     //Methods
-
     public HashMap<Integer, Cat> getCatStorageList(){
         return catStorageList;
     }
