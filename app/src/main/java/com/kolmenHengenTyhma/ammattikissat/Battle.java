@@ -3,11 +3,14 @@ package com.kolmenHengenTyhma.ammattikissat;
 import java.util.Random;
 
 public class Battle {
+    //attributes
     private Random random = new Random();
     private Cat c1, c2;
     private boolean c1HasRun = false,c2HasRun = false;
     private computerOpponent opponent;
-    // CONST
+
+
+    //constructor
     public Battle(Cat c1) {
         this.opponent = new computerOpponent();
         this.c2 = opponent.getCat();
@@ -15,7 +18,7 @@ public class Battle {
     }
 
 
-
+    //actions
     public void c1_attack(){
         if (c2.defend()){
             System.out.println("Hyökkäys estetty.");
@@ -24,21 +27,18 @@ public class Battle {
             c2.takeDMG(c1.getAttackDamage()-(c2.getDefencePower() / 2));//Damage calculation
         }
     }
-
     public void c1_defend(){
         c1.defend();
     }
-
     public void c1_ability(){
         c1.uniqueAbility();
 
     }
-
     public void c1_run(){
         c1HasRun = true;
     }
 
-    public void computerAction(){
+    public void computerAction(){ //action of the computer player
         int action = opponent.getAction();//returns: 0=error, 1=attack, 2=defend, 3=ability, 4=run
 
         if (action == 1){ //computer attack
@@ -66,7 +66,7 @@ public class Battle {
     }
 
 
-
+    //getters
     public boolean isBattleEnded(){
         boolean isBattleEnd = false;
 
@@ -76,7 +76,6 @@ public class Battle {
 
         return  isBattleEnd;
     }
-
     public Cat getPlayerCat() {
         return c1;
     }

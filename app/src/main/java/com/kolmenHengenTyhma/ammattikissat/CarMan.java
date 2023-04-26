@@ -3,12 +3,14 @@ package com.kolmenHengenTyhma.ammattikissat;
 import java.util.ArrayList;
 
 public class CarMan extends Cat{
+    //attributes
     private int abilityDuration;
-
+    //constructor
     public CarMan(String colour) {
         super(colour, 18, 18, 8, 4, 0);
     }
 
+    //actions
     @Override
     public int getAttackDamage(){//Overriding parent attack method to deal with special
         if(abilityDuration > 0){

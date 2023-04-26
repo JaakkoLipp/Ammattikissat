@@ -69,12 +69,12 @@ public class Information extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_information, container, false);
 
-        TextView tvCatName = view.findViewById(R.id.tvCatName);
+        TextView tvCatName = view.findViewById(R.id.tvCatName); //initialize fragment elements
         TextView tvCatEverything = view.findViewById(R.id.tvCatEverything);
         TextView tvWinLoss = view.findViewById(R.id.twWinLoss);
         ImageView ivprofie = view.findViewById(R.id.ivCatPhoto); //TODO: add changing cat pircure
 
-        String name = "place holder";
+        String name = "place holder"; //initialize all variables
         String colour = cat.getColour();
         int currentHP = cat.getCurrHP();
         int maxHP = cat.getMaxHP();
@@ -86,6 +86,8 @@ public class Information extends Fragment {
         int matches = cat.getMatches();
 
         //TODO: make a if else tree which sets the name of the cat based on the instance type
+
+        //TODO: implement training button
 
 
         tvCatName.setText(name + "aAAAAAaa"); //TODO: once cat integration works, remove aAAAAAaa

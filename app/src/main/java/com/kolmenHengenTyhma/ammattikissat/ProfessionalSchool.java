@@ -3,8 +3,9 @@ package com.kolmenHengenTyhma.ammattikissat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-// TODO: STORAGE & MAIN FUNCTIONALITY
+
 public class ProfessionalSchool {
+    //attributes
     private static ProfessionalSchool school = null;
 
     // Cat storage list
@@ -33,15 +34,7 @@ public class ProfessionalSchool {
         return school;
     }
 
-    //Methods
-
-    public HashMap<Integer, Cat> getCatStorageList(){
-        return catStorageList;
-    }
-
-    public Cat chooseCat(int orderNumber){
-        return catStorageList.get(orderNumber);
-    }
+    //Actions
     public void trainCat(Cat cat){
         cat.attackPower+=1;
     }
@@ -53,6 +46,14 @@ public class ProfessionalSchool {
     public void healCat(int orderNumber){
         Cat catToHeal = chooseCat(orderNumber);
         catToHeal.heal();
+    }
+
+    //Getters
+    public HashMap<Integer, Cat> getCatStorageList(){
+        return catStorageList;
+    }
+    public Cat chooseCat(int orderNumber){
+        return catStorageList.get(orderNumber);
     }
 }
 
