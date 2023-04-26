@@ -13,19 +13,11 @@ public class Cat {
     protected int maxHP;
     protected boolean isInDefence = false;
     protected double luck;//LUCK is calculated in points, should be between 0 and 10
-    protected ArrayList<String> matchHistory = new ArrayList<String>();
-    // Store matches in order with format "W"/"L"
+    protected int matches;
+    protected int wonMatches;
+    protected int lostMatches;
     protected int trainedDays;
-    //TODO: changed everything private -> protected so subclass abilities can access stats, luck protected as well
-
     private Random random = new Random();
-    public String getColour() {
-        return colour;
-    }
-
-    public int getMaxHP() {
-        return maxHP;
-    }
 
     //constructor
     public Cat(String colour, int currHP, int maxHP, int attackPower, int defencePower, double luck) {
@@ -37,7 +29,9 @@ public class Cat {
         this.defencePower = defencePower;
         this.luck = luck;
 
-        this.matchHistory = matchHistory;
+        matches = 0;
+        wonMatches = 0;
+        lostMatches = 0;
         this.trainedDays = 0;
     }
     public int getAttackDamage() {
@@ -74,6 +68,53 @@ public class Cat {
 
     public void heal() {//General restore health -method, NOT an ability!
         currHP = maxHP;
+    }
+
+
+
+
+
+
+
+
+    public void setAttackPower(int attackPower) {
+        this.attackPower = attackPower;
+    }
+
+    public void setMatches(int matches) {
+        this.matches = matches;
+    }
+
+    public void setWonMatches(int wonMatches) {
+        this.wonMatches = wonMatches;
+    }
+
+    public void setLostMatches(int lostMatches) {
+        this.lostMatches = lostMatches;
+    }
+
+    public int getMatches() {
+        return matches;
+    }
+
+    public int getWonMatches() {
+        return wonMatches;
+    }
+
+    public int getLostMatches() {
+        return lostMatches;
+    }
+
+    public double getLuck() {
+        return luck;
+    }
+
+    public String getColour() {
+        return colour;
+    }
+
+    public int getMaxHP() {
+        return maxHP;
     }
 
     public int getDefencePower() {
