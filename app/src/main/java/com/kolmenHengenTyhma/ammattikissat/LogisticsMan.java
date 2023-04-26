@@ -17,7 +17,7 @@ public class LogisticsMan extends Cat{
                 attackPower=-2;
             }
         }
-        super.getAttackDamage();//TODO : test if this shizzle works, i think so
+        return super.getAttackDamage();//TODO : test if this shizzle works, i think so
     }
     @Override
     public void uniqueAbility(){ //Increase attack power for following 2 attacks
