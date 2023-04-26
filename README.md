@@ -30,7 +30,7 @@ MIT License Copyright (c) [2023] [Kolmen Hengen Tyhmä]
 
 ## Legal
 
-Project artwork created using 
+Project artwork created using Hotpot.ai
 
 ## Alpha 0.0.1 Cats:
 
@@ -62,9 +62,7 @@ Abilities:
 - Grillisafka (+3hp) [Medium healing]
 - Töistöistöis (+3atk, 2 turns)
 - 
-Passive:
-- Gona (Matala todennäköisyys väistää tuleva hyökkäys ~2%)
-- ??
+
 
 ![meme](kissa.png)
 
