@@ -50,9 +50,7 @@ public class Battlescreen_Activity extends AppCompatActivity {
 
 
         new Thread(new Runnable() {
-            computerOpponent opponent = new computerOpponent();
-            Cat opponentCat = opponent.getCat();
-            Battle currentBattle = new Battle(playerCat, opponentCat);
+            Battle currentBattle = new Battle(playerCat);
 
             @Override
             public void run() {
@@ -60,25 +58,31 @@ public class Battlescreen_Activity extends AppCompatActivity {
 
 
                     if (btAttackPressed){ //player actions
+                        currentBattle.c1_attack();
+                        currentBattle.computerAction();
 
                     } else if (btDefendPressed){
+                        currentBattle.c1_defend();
+                        currentBattle.computerAction();
 
                     } else if (btAbilityPressed){
+                        currentBattle.c1_ability();
+                        currentBattle.computerAction();
 
                     } else if (btRunPressed){
+                        currentBattle.c1_run();
+                        currentBattle.computerAction();
 
                     }
 
-                    if (playerCat.getCurrHP() == 0){
 
-                    } else if (opponentCat.getCurrHP() == 0){
-
-                    } else if (currentBattle.isC1HasRun()){
-
-                    } else if (currentBattle.isC2HasRun()){
-
+                    if (currentBattle.isBattleEnded()){
+                        //TODO: end battle(battle ends when view ends)
                     }
+
                 } while (isViewOpen);
+
+                playerCat = currentBattle.getPlayerCat();
 
             }
         });
