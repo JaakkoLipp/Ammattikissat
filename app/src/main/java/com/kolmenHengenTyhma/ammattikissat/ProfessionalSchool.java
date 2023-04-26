@@ -5,8 +5,6 @@ import java.util.HashMap;
 
 // TODO: STORAGE & MAIN FUNCTIONALITY
 public class ProfessionalSchool {
-    // cat battler
-    private Battle Battle = new Battle();
     private static ProfessionalSchool school = null;
 
     // Cat storage list
@@ -39,7 +37,7 @@ public class ProfessionalSchool {
     }
 
     public Cat chooseCat(int orderNumber){
-        return catStorageList.get(2);
+        return catStorageList.get(orderNumber);
     }
     public void trainCat(Cat cat){
         cat.attackPower+=1;

@@ -10,14 +10,14 @@ public class LogisticsMan extends Cat{
     }
 
     @Override
-    public void attack(Cat catToAttack){//Overriding parent attack method to deal with special
+    public int getAttackDamage(){//Overriding parent attack method to deal with special
         if(abilityDuration > 0){
             abilityDuration=-1;
             if(abilityDuration<=0){
                 attackPower=-2;
             }
         }
-        super.attack(catToAttack);//TODO : test if this shizzle works, i think so
+        return super.getAttackDamage();//TODO : test if this shizzle works, i think so
     }
     @Override
     public void uniqueAbility(){ //Increase attack power for following 2 attacks

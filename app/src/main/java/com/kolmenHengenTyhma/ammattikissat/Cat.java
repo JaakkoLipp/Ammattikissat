@@ -11,7 +11,8 @@ public class Cat {
     protected String colour;
     protected int currHP;
     protected int maxHP;
-    protected double luck;//LUCK is calculated in points
+    protected boolean isInDefence = false;
+    protected double luck;//LUCK is calculated in points, should be between 0 and 10
     protected ArrayList<String> matchHistory = new ArrayList<String>();
     // Store matches in order with format "W"/"L"
     protected int trainedDays;
@@ -44,18 +45,30 @@ public class Cat {
         this.matchHistory = matchHistory;
         this.trainedDays = 0;
     }
-    public void attack(Cat catToAttack) {
+    public int getAttackDamage() {
+        int damage;
         if((random.nextInt(10)+this.luck) > 6){ // (33% + luck) = chance of critical hit
-            catToAttack.takeDMG(this.attackPower+2);// Critical hit deals +1 damage
+            damage = attackPower + 2 ;// Critical hit deals +1 damage
         }else{
-            catToAttack.takeDMG(this.attackPower);
+            damage = attackPower;
+        }
+
+        return damage;
+    }
+
+    public boolean defend(){
+        if (isInDefence){
+            this.isInDefence = false;
+            return true;
+        } else {
+            return false;
         }
     }
+
     public void uniqueAbility() {
-        //TODO : default unique ability?
+        //TODO: default unique ability?
     }
     public void takeDMG(int damage){
-        damage=damage-(this.defencePower / 2);//Damage calculation
         if(currHP > damage){
             currHP -= damage;
         }else{
@@ -72,5 +85,12 @@ public class Cat {
     }
     public int getAttackPower() {
         return attackPower;
+    }
+    public boolean getIsInDefence(){
+        return isInDefence;
+    }
+
+    public int getCurrHP(){
+        return currHP;
     }
 }
