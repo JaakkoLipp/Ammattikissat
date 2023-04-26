@@ -4,11 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.Information">
+    tools:context=".fragments.Information"
+    android:background="#90caf9">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/linearLayout"
+        android:layout_width="390dp"
         android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
         android:orientation="vertical">
 
         <LinearLayout
@@ -35,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Cat Name"
-                    android:textSize="48sp" />
+                    android:textSize="34sp" />
 
                 <TextView
                     android:id="@+id/twWinLoss"
@@ -49,7 +52,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/twCatEverything"
+            android:id="@+id/tvCatEverything"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="cat.everything" />
