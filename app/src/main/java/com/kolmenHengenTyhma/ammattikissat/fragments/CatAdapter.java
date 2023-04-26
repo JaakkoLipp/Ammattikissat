@@ -37,8 +37,8 @@ public class CatAdapter extends RecyclerView.Adapter<CatViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull CatViewHolder holder, int position) {
         holder.currHP.setVisibility(View.VISIBLE);
-                //(cat.currHP/cat.MaxHP)*100
-        holder.currHP.setProgress(33);
+        holder.currHP.setProgress(catStorageList.get(position).getCurrHPinPercentage());
+        System.out.println(catStorageList.get(position).getCurrHPinPercentage());
         String Type="";
         // idk i guess this works
         if (catStorageList.get(position) instanceof ElectricianMan){
