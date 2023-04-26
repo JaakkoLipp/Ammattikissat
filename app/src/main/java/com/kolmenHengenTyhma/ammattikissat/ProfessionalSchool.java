@@ -15,6 +15,15 @@ public class ProfessionalSchool {
 
     //Singleton
     private ProfessionalSchool() {
+        // TODO: temp cats remove
+        ElectricianMan ELMAN = new ElectricianMan("Orange");
+        PipeMan POIPEMAN = new PipeMan("Not Orange");
+        CarMan REMONGER = new CarMan("Black");
+        POIPEMAN.takeDMG(5);
+        catStorageList.put(0,ELMAN);
+        catStorageList.put(1, POIPEMAN);
+        catStorageList.put(2,REMONGER);
+
     }
     public static ProfessionalSchool getInstance() {
         if (school == null) {

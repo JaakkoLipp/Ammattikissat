@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#90CAF9"
     android:orientation="vertical"
-    tools:context=".fragments.CatRecycler" >
+    tools:context=".fragments.CatRecycler">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/CatRecyclerView"

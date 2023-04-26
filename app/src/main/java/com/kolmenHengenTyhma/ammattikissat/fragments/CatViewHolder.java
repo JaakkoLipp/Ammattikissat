@@ -13,12 +13,13 @@ import com.kolmenHengenTyhma.ammattikissat.R;
 
 public class CatViewHolder extends RecyclerView.ViewHolder {
     ProgressBar currHP;
-    TextView catTypeText;
+    TextView catTypeText, colourText;
     ImageView catPic;
     public CatViewHolder(@NonNull View cat_View) {
         super(cat_View);
         catPic = cat_View.findViewById(R.id.catPic);
         catTypeText = cat_View.findViewById(R.id.catTypeText);
         currHP = cat_View.findViewById(R.id.currHPBar);
+        colourText = cat_View.findViewById(R.id.colourText);
     }
 }
