@@ -37,7 +37,6 @@ public class CatAdapter extends RecyclerView.Adapter<CatViewHolder>{
         return new CatViewHolder(view);
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull CatViewHolder holder, int position) {
         if (position == selectedItemPosition) {
@@ -79,14 +78,27 @@ public class CatAdapter extends RecyclerView.Adapter<CatViewHolder>{
                 notifyItemChanged(selectedItemPosition);
                 int position = holder.getAdapterPosition();
                 Cat clickedCat = catStorageList.get(position);
-                String message = "Valittu Kissa: " + selectedItemPosition;
+                String message;
+                // idk bro it is what it is
+                if (catStorageList.get(position) instanceof ElectricianMan){
+                    message = "Valittu Kissa: Sähkökissa";
+                } else if (catStorageList.get(position) instanceof PipeMan) {
+                    message = "Valittu Kissa: LVI-Kissa";
+                } else if (catStorageList.get(position) instanceof CarMan) {
+                    message = "Valittu Kissa: Autokissa";
+                } else if (catStorageList.get(position) instanceof LogisticsMan) {
+                    message = "Valittu Kissa: Logistiikkakissa";
+                } else if (catStorageList.get(position) instanceof RaksaMan) {
+                    message = "Valittu Kissa: Raksakissa";
+                } else {
+                    message = "Valittu Kissa: TöiKissa";
+                }
                 Toast.makeText(v.getContext(), message, Toast.LENGTH_SHORT).show();
                 ProfessionalSchool.getInstance().setSelectedCatPos(selectedItemPosition);
                 System.out.println(ProfessionalSchool.getInstance().getSelectedCatPos());
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return catStorageList.size();
