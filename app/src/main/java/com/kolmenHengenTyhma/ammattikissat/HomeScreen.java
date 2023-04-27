@@ -2,11 +2,13 @@ package com.kolmenHengenTyhma.ammattikissat;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.tabs.TabLayout;
 import com.kolmenHengenTyhma.ammattikissat.fragments.CatRecycler;
 import com.kolmenHengenTyhma.ammattikissat.fragments.Information;
 
@@ -16,33 +18,34 @@ public class HomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
-        Button fragmentCRB = findViewById(R.id.catRecyclerButton);
-        Button fragmentInfoB = findViewById(R.id.informationButton);
-        fragmentCRB.setOnClickListener(listener);
-        fragmentInfoB.setOnClickListener(listener);
 
-        Fragment defaultFragment = new CatRecycler();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frame, defaultFragment)
-                .commit();
-    }
-
-    private View.OnClickListener listener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view){
-            Fragment fragment;
-            // gradle 8.0 doesn't like switch cases with R.id
-            int id = view.getId();
-            if (id == R.id.catRecyclerButton) {
-                fragment = new CatRecycler();
-            } else if (id == R.id.informationButton) {
-                fragment = new Information();
-            } else {
-                fragment = new CatRecycler();
+        TabLayout tabLayout = findViewById(R.id.tabArea);
+        ViewPager2 fragmentArea = findViewById(R.id.fragmentArea);
+        TabPagerAdapter tabPagerAdapter = new TabPagerAdapter(this);
+        fragmentArea.setAdapter(tabPagerAdapter);
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                fragmentArea.setCurrentItem(tab.getPosition());
             }
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.frame, fragment)
-                    .commit();
-        }
-    };
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+        fragmentArea.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                tabLayout.getTabAt(position).select();
+            }
+        });
+
+    }
 }
