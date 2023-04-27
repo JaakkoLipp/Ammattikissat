@@ -32,11 +32,18 @@ public class CatRecycler extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ArrayList<Cat> CatList;
 
     public CatRecycler() {
         // Required empty public constructor
     }
-
+    //resolves unupdating recycler
+    @Override
+    public void onResume() {
+        super.onResume();
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(new CatAdapter(CatList));
+    }
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -70,7 +77,7 @@ public class CatRecycler extends Fragment {
         recyclerView = view.findViewById(R.id.CatRecyclerView);
         //TODO: Pass Hashmap to fragment then pass to view holder then to adapter
         HashMap<Integer, Cat> catStorageList = ProfessionalSchool.getInstance().getCatStorageList();
-        ArrayList<Cat> CatList = new ArrayList<Cat>(catStorageList.values());
+        CatList = new ArrayList<Cat>(catStorageList.values());
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(new CatAdapter(CatList));
         return view;
