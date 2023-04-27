@@ -9,10 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.kolmenHengenTyhma.ammattikissat.CarMan;
 import com.kolmenHengenTyhma.ammattikissat.Cat;
+import com.kolmenHengenTyhma.ammattikissat.ElectricianMan;
+import com.kolmenHengenTyhma.ammattikissat.LogisticsMan;
+import com.kolmenHengenTyhma.ammattikissat.PipeMan;
+import com.kolmenHengenTyhma.ammattikissat.ProfessionalSchool;
 import com.kolmenHengenTyhma.ammattikissat.R;
+import com.kolmenHengenTyhma.ammattikissat.RaksaMan;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,16 +32,38 @@ public class Information extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    private TextView tvCatName;
+    private TextView tvCatEverything;
+    private ProgressBar currHP;
+    private View view;
+    private TextView tvWinLoss;
+    private ImageView ivprofile;
+    private Button healButton;
+    private Button trainButton;
+    private String name = "place holder";
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     private Cat cat = new Cat("orangse", 20, 20, 20, 20, 20); //TODO: Add custom cat getting
-
+    private String colour = cat.getColour();
+    private int currentHP = cat.getCurrHP();
+    private int maxHP = cat.getMaxHP();
+    private int attackPower = cat.getAttackPower();
+    private int defencePower = cat.getDefencePower();
+    private double luck = cat.getLuck();
+    private int wins = cat.getWonMatches();
+    private int losses = cat.getLostMatches();
+    private int matches = cat.getMatches();
     public Information() {
         // Required empty public constructor
     }
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Update the contents of the fragment's views or data here
+        cat= ProfessionalSchool.getInstance().chooseCat(ProfessionalSchool.getInstance().getSelectedCatPos());
+        getCatData(cat);
+    }
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -63,40 +92,74 @@ public class Information extends Fragment {
 
 
     }
+    public void getCatData(Cat cat){
+        // idk i guess this works
+        if (cat instanceof ElectricianMan){
+            name = "Sähkökissa";
+            ivprofile.setImageResource(R.drawable.sahkissa_nobg);
+        } else if (cat instanceof PipeMan) {
+            name = "LVI-kissa";
+            ivprofile.setImageResource(R.drawable.putkissa_nobg);
+        } else if (cat instanceof CarMan) {
+            name = "Autokissa";
+            ivprofile.setImageResource(R.drawable.autokissa_nobg);
+        } else if (cat instanceof LogisticsMan) {
+            name = "Logistiikkakissa";
+            ivprofile.setImageResource(R.drawable.logiskissa_nobg);
+        } else if (cat instanceof RaksaMan) {
+            name = "Raksakissa";
+            ivprofile.setImageResource(R.drawable.raksakissa_nobg);
+        } else {
+            name = "TöiKissa";
+        }
+        tvCatName.setText(name); //TODO: once cat integration works, remove aAAAAAaa
+        colour = cat.getColour();
+        currentHP = cat.getCurrHP();
+        maxHP = cat.getMaxHP();
+        attackPower = cat.getAttackPower();
+        defencePower = cat.getDefencePower();
+        luck = cat.getLuck();
+        wins = cat.getWonMatches();
+        losses = cat.getLostMatches();
+        matches = cat.getMatches();
+        tvCatEverything.setText("Väri: " + colour + "\n\nTaistellut ottelut: " + matches + "\n\nElämä pisteet: " + currentHP + "/" + maxHP + "\n\nHyökkäysvoima: " + attackPower + "\n\nPuolustus voima:" + defencePower + "\n\nOnni: " + luck);
+        tvWinLoss.setText("Voitot/Häviöt\n" + wins + "/" + losses);
+        currHP.setVisibility(View.VISIBLE);
+        currHP.setProgress(cat.getCurrHPinPercentage());
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_information, container, false);
+        cat= ProfessionalSchool.getInstance().chooseCat(ProfessionalSchool.getInstance().getSelectedCatPos());
+        view = inflater.inflate(R.layout.fragment_information, container, false);
 
-        TextView tvCatName = view.findViewById(R.id.tvCatName); //initialize fragment elements
-        TextView tvCatEverything = view.findViewById(R.id.tvStats);
-        TextView tvWinLoss = view.findViewById(R.id.tvWL);
-        ImageView ivprofie = view.findViewById(R.id.ivCatPicture); //TODO: add changing cat pircure
-        Button healButton = view.findViewById(R.id.btHeal);
-        Button trainButton = view.findViewById(R.id.btTrain);
+        tvCatName = view.findViewById(R.id.tvCatName); //initialize fragment elements
+        tvCatEverything = view.findViewById(R.id.tvStats);
+        tvWinLoss = view.findViewById(R.id.tvWL);
+        ivprofile = view.findViewById(R.id.ivCatPicture); //TODO: add changing cat pircure
+        healButton = view.findViewById(R.id.btHeal);
+        trainButton = view.findViewById(R.id.btTrain);
+        currHP = view.findViewById(R.id.pbHP);
+        getCatData(cat);
+        healButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Do something when the button is clicked
+                ProfessionalSchool.getInstance().healCat(ProfessionalSchool.getInstance().getSelectedCatPos());
+                currHP.setProgress(cat.getCurrHPinPercentage());
+            }
+        });
+        trainButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Do something when the button is clicked
+                ProfessionalSchool.getInstance().trainCat(ProfessionalSchool.getInstance().getSelectedCatPos());
+                getCatData(cat);
+            }
+        });
 
-
-        String name = "place holder"; //initialize all variables
-        String colour = cat.getColour();
-        int currentHP = cat.getCurrHP();
-        int maxHP = cat.getMaxHP();
-        int attackPower = cat.getAttackPower();
-        int defencePower = cat.getDefencePower();
-        double luck = cat.getLuck();
-        int wins = cat.getWonMatches();
-        int losses = cat.getLostMatches();
-        int matches = cat.getMatches();
-
-        //TODO: make a if else tree which sets the name of the cat based on the instance type
-
-        //TODO: implement training button
-        //TODO: HEAL button
-
-        tvCatName.setText(name + "aAAAAAaa"); //TODO: once cat integration works, remove aAAAAAaa
-        tvWinLoss.setText("Voitot/Häviöt\n" + wins + "/" + losses);
-        tvCatEverything.setText("Väri: " + colour + "\n\nTaistellut ottelut: " + matches + "\n\nElämä pisteet: " + currentHP + "/" + maxHP + "\n\nHyökkäysvoima: " + attackPower + "\n\nPuolustus voima:" + defencePower + "\n\nOnni: " + luck);
         return view;
     }
 }

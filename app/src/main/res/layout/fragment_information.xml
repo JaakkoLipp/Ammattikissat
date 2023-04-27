@@ -33,7 +33,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:src="@drawable/autokissa_nobg" />
+                android:src="@drawable/raksakissa_nobg" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,7 +65,8 @@
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:progressTint="#A5D6A7" />
             </LinearLayout>
 
         </LinearLayout>
