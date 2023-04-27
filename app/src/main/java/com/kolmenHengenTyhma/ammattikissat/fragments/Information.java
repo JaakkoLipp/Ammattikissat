@@ -93,25 +93,9 @@ public class Information extends Fragment {
 
     }
     public void getCatData(Cat cat){
-        // idk i guess this works
-        if (cat instanceof ElectricianMan){
-            name = "Sähkökissa";
-            ivprofile.setImageResource(R.drawable.sahkissa_nobg);
-        } else if (cat instanceof PipeMan) {
-            name = "LVI-kissa";
-            ivprofile.setImageResource(R.drawable.putkissa_nobg);
-        } else if (cat instanceof CarMan) {
-            name = "Autokissa";
-            ivprofile.setImageResource(R.drawable.autokissa_nobg);
-        } else if (cat instanceof LogisticsMan) {
-            name = "Logistiikkakissa";
-            ivprofile.setImageResource(R.drawable.logiskissa_nobg);
-        } else if (cat instanceof RaksaMan) {
-            name = "Raksakissa";
-            ivprofile.setImageResource(R.drawable.raksakissa_nobg);
-        } else {
-            name = "TöiKissa";
-        }
+        // idk i guess this works patent
+        ivprofile.setImageResource(cat.getCatPic());
+        name = cat.getName();
         tvCatName.setText(name); //TODO: once cat integration works, remove aAAAAAaa
         colour = cat.getColour();
         currentHP = cat.getCurrHP();
