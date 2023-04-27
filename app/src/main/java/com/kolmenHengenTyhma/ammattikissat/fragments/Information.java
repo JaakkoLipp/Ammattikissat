@@ -92,7 +92,7 @@ public class Information extends Fragment {
 
         tvCatName.setText(name + "aAAAAAaa"); //TODO: once cat integration works, remove aAAAAAaa
         tvWinLoss.setText("Voitot/Häviöt: " + wins + "/" + losses);
-        tvCatEverything.setText("Väri: " + colour + "\nTaistellut ottelut: " + matches + "\nElämä pisteet: " + currentHP + "/" + maxHP + "\nHyökkäysvoima: " + attackPower + "\nPuolustus voima:" + defencePower + "\nOnni: " + "luck");
+        tvCatEverything.setText("Väri: " + colour + "\nTaistellut ottelut: " + matches + "\nElämä pisteet: " + currentHP + "/" + maxHP + "\nHyökkäysvoima: " + attackPower + "\nPuolustus voima:" + defencePower + "\nOnni: " + luck);
         return view;
     }
 }

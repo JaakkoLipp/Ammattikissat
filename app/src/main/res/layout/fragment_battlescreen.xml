@@ -35,25 +35,25 @@
 
                 <Button
                     android:id="@+id/btAttackButton"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="65dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:text="Attack" />
+                    android:text="hyökkää" />
 
                 <Button
                     android:id="@+id/btDefendButton"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="65dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:text="Defend" />
+                    android:text="puolusta" />
             </LinearLayout>
 
             <LinearLayout
@@ -63,25 +63,25 @@
 
                 <Button
                     android:id="@+id/btAbilityButton"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="65dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
                     android:layout_weight="1"
-                    android:text="Ability" />
+                    android:text="Oma kyky" />
 
                 <Button
                     android:id="@+id/btRunButton"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="65dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="20dp"
                     android:layout_weight="1"
-                    android:text="Run" />
+                    android:text="Juokse" />
             </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
