@@ -65,6 +65,42 @@ public class Cat {
             currHP = 0;
         }
     }
+    public String getName(){
+        // TODO: fix patent solutions
+        String name = "Not Found";
+        if (this instanceof ElectricianMan){
+            name = "Sähkökissa";
+        } else if (this instanceof PipeMan) {
+            name = "LVI-kissa";
+        } else if (this instanceof CarMan) {
+            name = "Autokissa";
+        } else if (this instanceof LogisticsMan) {
+            name = "Logistiikkakissa";
+        } else if (this instanceof RaksaMan) {
+            name = "Raksakissa";
+        } else {
+            name = "TöiKissa";
+        }
+        return name;
+    }
+    public int getCatPic(){
+        // TODO: fix patent solutions
+        int id;
+        if (this instanceof ElectricianMan){
+            id = R.drawable.sahkissa_nobg;
+        } else if (this instanceof PipeMan) {
+            id = R.drawable.putkissa_nobg;
+        } else if (this instanceof CarMan) {
+            id = R.drawable.autokissa_nobg;
+        } else if (this instanceof LogisticsMan) {
+            id = R.drawable.autokissa_nobg;
+        } else if (this instanceof RaksaMan) {
+            id = R.drawable.raksakissa_nobg;
+        } else {
+            id = R.drawable.raksakissa_nobg;
+        }
+        return id;
+    }
     public void heal(){
         currHP = maxHP;
     }

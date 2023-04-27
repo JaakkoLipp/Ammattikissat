@@ -48,25 +48,10 @@ public class CatAdapter extends RecyclerView.Adapter<CatViewHolder>{
         holder.currHP.setProgress(catStorageList.get(position).getCurrHPinPercentage());
         System.out.println(catStorageList.get(position).getCurrHPinPercentage());
         String Type="";
-        // idk i guess this works
-        if (catStorageList.get(position) instanceof ElectricianMan){
-            Type = "Sähkökissa";
-            holder.catPic.setImageResource(R.drawable.sahkissa_nobg);
-        } else if (catStorageList.get(position) instanceof PipeMan) {
-            Type = "LVI-kissa";
-            holder.catPic.setImageResource(R.drawable.putkissa_nobg);
-        } else if (catStorageList.get(position) instanceof CarMan) {
-            Type = "Autokissa";
-            holder.catPic.setImageResource(R.drawable.autokissa_nobg);
-        } else if (catStorageList.get(position) instanceof LogisticsMan) {
-            Type = "Logistiikkakissa";
-            holder.catPic.setImageResource(R.drawable.logiskissa_nobg);
-        } else if (catStorageList.get(position) instanceof RaksaMan) {
-            Type = "Raksakissa";
-            holder.catPic.setImageResource(R.drawable.raksakissa_nobg);
-        } else {
-            Type = "TöiKissa";
-        }
+        // if replacer
+        Type = catStorageList.get(position).getName();
+        holder.catPic.setImageResource(catStorageList.get(position).getCatPic());
+
         holder.catTypeText.setText(Type);
         holder.colourText.setText(catStorageList.get(position).getColour());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -79,20 +64,7 @@ public class CatAdapter extends RecyclerView.Adapter<CatViewHolder>{
                 int position = holder.getAdapterPosition();
                 Cat clickedCat = catStorageList.get(position);
                 String message;
-                // idk bro it is what it is
-                if (catStorageList.get(position) instanceof ElectricianMan){
-                    message = "Valittu Kissa: Sähkökissa";
-                } else if (catStorageList.get(position) instanceof PipeMan) {
-                    message = "Valittu Kissa: LVI-Kissa";
-                } else if (catStorageList.get(position) instanceof CarMan) {
-                    message = "Valittu Kissa: Autokissa";
-                } else if (catStorageList.get(position) instanceof LogisticsMan) {
-                    message = "Valittu Kissa: Logistiikkakissa";
-                } else if (catStorageList.get(position) instanceof RaksaMan) {
-                    message = "Valittu Kissa: Raksakissa";
-                } else {
-                    message = "Valittu Kissa: TöiKissa";
-                }
+                message = "Valittu Kissa: "+catStorageList.get(position).getName();;
                 Toast.makeText(v.getContext(), message, Toast.LENGTH_SHORT).show();
                 ProfessionalSchool.getInstance().setSelectedCatPos(selectedItemPosition);
                 System.out.println(ProfessionalSchool.getInstance().getSelectedCatPos());
