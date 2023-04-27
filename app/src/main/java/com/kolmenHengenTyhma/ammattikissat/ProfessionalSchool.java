@@ -36,16 +36,17 @@ public class ProfessionalSchool {
     }
 
     //Actions
-    public void trainCat(Cat cat){
-        cat.attackPower+=1;
+    public void trainCat(int pos){
+        Cat cat = chooseCat(pos);
+        cat.train();
     }
     public void addCat(String colour, int currHP, int maxHP, int attackPower, int defencePower, double luck, ArrayList<String> statistics){
         Cat newCat;
         catStorageList.put(orderNumberCat, null);
         orderNumberCat+=1;
     }
-    public void healCat(int orderNumber){
-        Cat catToHeal = chooseCat(orderNumber);
+    public void healCat(int pos){
+        Cat catToHeal = chooseCat(pos);
         catToHeal.heal();
     }
 
