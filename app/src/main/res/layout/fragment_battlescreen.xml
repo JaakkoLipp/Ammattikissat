@@ -11,6 +11,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -20,13 +21,22 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <ProgressBar
-                android:id="@+id/pbOwnHealth"
-                style="?android:attr/progressBarStyleHorizontal"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="10dp" />
+                android:background="@color/purple_200">
+
+                <ProgressBar
+                    android:id="@+id/pbOwnHealth"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -37,9 +47,8 @@
                     android:id="@+id/btAttackButton"
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:text="hyökkää" />
@@ -48,9 +57,8 @@
                     android:id="@+id/btDefendButton"
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:text="puolusta" />
@@ -65,9 +73,8 @@
                     android:id="@+id/btAbilityButton"
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_margin="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
                     android:layout_weight="1"
                     android:text="Oma kyky" />
@@ -76,10 +83,7 @@
                     android:id="@+id/btRunButton"
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:text="Juokse" />
             </LinearLayout>
@@ -90,6 +94,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="10dp"
+        android:background="@color/purple_200"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -111,7 +116,8 @@
                     android:id="@+id/tvBattleLog"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Battle Log" />
+                    android:text="Battle Log"
+                    android:textColor="@color/white" />
             </LinearLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -128,6 +134,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/purple_200"
             android:orientation="vertical">
 
             <TextView
@@ -136,6 +143,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="Opponent Name"
+                android:textAlignment="center"
+                android:textColor="@color/white"
                 android:textSize="24sp" />
 
             <LinearLayout
@@ -149,7 +158,8 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:text="Opponent stats" />
+                    android:text="Opponent stats"
+                    android:textColor="@color/white" />
 
                 <ImageView
                     android:id="@+id/ivOpponentImage"
