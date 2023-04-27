@@ -83,7 +83,7 @@ public class Battlescreen extends Fragment {
         professionalSchool.increaseBattleNumber();
         tvBattleLog.setText("Taistelu numero: " + professionalSchool.getBattleNumber() + "\n");
         playerCat = ProfessionalSchool.getInstance().chooseCat(ProfessionalSchool.getInstance().getSelectedCatPos());
-        tvBattleLog.append("Ladattu kissa: " + "Insert kissa nime"); //TODO: get name with function
+        tvBattleLog.append("Ladattu kissa: ");
         Battle currentBattle = new Battle(playerCat);
         tvOpponentName.setText("ASeta opponensi nimi tähän"); //TODO: get name with function
         tvOpponentStats.setText(currentBattle.getOpponentStats());
