@@ -11,6 +11,7 @@ public class ProfessionalSchool {
     // Cat storage list
     private HashMap<Integer, Cat> catStorageList = new HashMap<Integer, Cat>();
     private int orderNumberCat = 0;
+    private int selectedCatPos;
 
     //Singleton
     private ProfessionalSchool() {
@@ -54,6 +55,12 @@ public class ProfessionalSchool {
     }
     public Cat chooseCat(int orderNumber){
         return catStorageList.get(orderNumber);
+    }
+    public int getSelectedCatPos() {
+        return selectedCatPos;
+    }
+    public void setSelectedCatPos(int selectedCatPos) {
+        this.selectedCatPos = selectedCatPos;
     }
 }
 
