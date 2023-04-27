@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -70,9 +71,12 @@ public class Information extends Fragment {
         View view = inflater.inflate(R.layout.fragment_information, container, false);
 
         TextView tvCatName = view.findViewById(R.id.tvCatName); //initialize fragment elements
-        TextView tvCatEverything = view.findViewById(R.id.tvCatEverything);
-        TextView tvWinLoss = view.findViewById(R.id.twWinLoss);
-        ImageView ivprofie = view.findViewById(R.id.ivCatPhoto); //TODO: add changing cat pircure
+        TextView tvCatEverything = view.findViewById(R.id.tvStats);
+        TextView tvWinLoss = view.findViewById(R.id.tvWL);
+        ImageView ivprofie = view.findViewById(R.id.ivCatPicture); //TODO: add changing cat pircure
+        Button healButton = view.findViewById(R.id.btHeal);
+        Button trainButton = view.findViewById(R.id.btTrain);
+
 
         String name = "place holder"; //initialize all variables
         String colour = cat.getColour();
@@ -91,8 +95,8 @@ public class Information extends Fragment {
         //TODO: HEAL button
 
         tvCatName.setText(name + "aAAAAAaa"); //TODO: once cat integration works, remove aAAAAAaa
-        tvWinLoss.setText("Voitot/Häviöt: " + wins + "/" + losses);
-        tvCatEverything.setText("Väri: " + colour + "\nTaistellut ottelut: " + matches + "\nElämä pisteet: " + currentHP + "/" + maxHP + "\nHyökkäysvoima: " + attackPower + "\nPuolustus voima:" + defencePower + "\nOnni: " + luck);
+        tvWinLoss.setText("Voitot/Häviöt\n" + wins + "/" + losses);
+        tvCatEverything.setText("Väri: " + colour + "\n\nTaistellut ottelut: " + matches + "\n\nElämä pisteet: " + currentHP + "/" + maxHP + "\n\nHyökkäysvoima: " + attackPower + "\n\nPuolustus voima:" + defencePower + "\n\nOnni: " + luck);
         return view;
     }
 }

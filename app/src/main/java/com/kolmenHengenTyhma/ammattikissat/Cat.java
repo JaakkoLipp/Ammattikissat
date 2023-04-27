@@ -65,8 +65,11 @@ public class Cat {
             currHP = 0;
         }
     }
-    public void heal() {//General restore health -method, NOT an ability!
+    public void heal(){
         currHP = maxHP;
+    }
+    public void train(){
+        attackPower = attackPower + 1;
     }
 
     //setters
