@@ -133,6 +133,7 @@ public class Information extends Fragment {
                 // Do something when the button is clicked
                 ProfessionalSchool.getInstance().healCat(ProfessionalSchool.getInstance().getSelectedCatPos());
                 currHP.setProgress(cat.getCurrHPinPercentage());
+                getCatData(cat);
             }
         });
         trainButton.setOnClickListener(new View.OnClickListener() {

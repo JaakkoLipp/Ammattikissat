@@ -58,9 +58,11 @@ public class Cat {
         return ("how did you get here?");
     }
     public void takeDMG(int damage){
-        if(currHP > damage){
+        if(currHP > damage && damage >= 0){
             currHP -= damage;
-        }else{
+        }else if ( currHP > damage && damage < 0){
+            //does nothing if damage negative.
+        } else {
             // L cat (Dead 💀)
             currHP = 0;
         }
@@ -115,6 +117,15 @@ public class Cat {
     public void setMatches(int matches) {
         this.matches = matches;
     }
+    public void increaseMatchcount(){
+        this.matches += 1;
+    }
+    public void increaseWinCount(){
+        this.wonMatches += 1;
+    }
+    public void increaseLossCount(){
+        this.lostMatches += 1;
+    }
     public void setWonMatches(int wonMatches) {
         this.wonMatches = wonMatches;
     }
@@ -128,6 +139,14 @@ public class Cat {
             isInDefence = true;
             return ("Asetit itsesi puollustukseen. Vastustaja ei pysty hyökkäämään seuraavalla vuorolla.");
         }
+    }
+
+    public void setDefencePower(int defencePower) {
+        this.defencePower = defencePower;
+    }
+
+    public void setLuck(double luck) {
+        this.luck = luck;
     }
 
     //getters

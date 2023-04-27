@@ -47,9 +47,9 @@
                     android:id="@+id/btAttackButton"
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:text="hyökkää" />
 
@@ -57,9 +57,9 @@
                     android:id="@+id/btDefendButton"
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:text="puolusta" />
             </LinearLayout>
@@ -73,9 +73,7 @@
                     android:id="@+id/btAbilityButton"
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
-                    android:layout_margin="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:text="Oma kyky" />
 
@@ -83,7 +81,7 @@
                     android:id="@+id/btRunButton"
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
-                    android:layout_margin="10dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:text="Juokse" />
             </LinearLayout>
@@ -159,12 +157,13 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:text="Opponent stats"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
 
                 <ImageView
                     android:id="@+id/ivOpponentImage"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="180dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:src="@drawable/autokissa_nobg" />

@@ -32,4 +32,10 @@ public class LogisticsMan extends Cat{
 
         return ( "Käytit oman kyvyn. " + abilityDurationTime + " vuoron ajaksi hyökkäys voimasi on " + abilityPowerIncrease + " korkeampi (Hyökkäysvoima nyt: " + this.attackPower + ", hyökkäysvoima ennen: " + (this.attackPower-abilityPowerIncrease) + ")(Abilityn pituue ei voi kasvaa yli kahden useammalla käytöllä.)");
     }
+
+    //setters
+
+    public void setAbilityDuration(int abilityDuration) {
+        this.abilityDuration = abilityDuration;
+    }
 }

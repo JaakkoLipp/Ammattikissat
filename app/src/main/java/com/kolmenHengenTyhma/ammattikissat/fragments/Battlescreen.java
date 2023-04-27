@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.kolmenHengenTyhma.ammattikissat.Battle;
 import com.kolmenHengenTyhma.ammattikissat.Cat;
+import com.kolmenHengenTyhma.ammattikissat.LogisticsMan;
 import com.kolmenHengenTyhma.ammattikissat.ProfessionalSchool;
 import com.kolmenHengenTyhma.ammattikissat.R;
 
@@ -33,6 +34,10 @@ public class Battlescreen extends Fragment {
     private ImageView ivOpponentImage;
     private ProgressBar pbOpponentHealth, pbOwnHealth;
     private Battle currentBattle;
+    private int preBattleAttack, preBattleDefence;
+    private double preBattleLuck;
+    private boolean gameIsRunning;
+    private boolean playerHasClicked; //used for checking if player has interacted in current game
 
 
 
@@ -78,68 +83,163 @@ public class Battlescreen extends Fragment {
     }
 
     public void battleInitialisation(){
-
-        ProfessionalSchool professionalSchool = ProfessionalSchool.getInstance();
-        professionalSchool.increaseBattleNumber();
-        tvBattleLog.setText("Taistelu numero: " + professionalSchool.getBattleNumber() + "\n");
         playerCat = ProfessionalSchool.getInstance().chooseCat(ProfessionalSchool.getInstance().getSelectedCatPos());
-        tvBattleLog.append("Ladattu kissa: ");
-        Battle currentBattle = new Battle(playerCat);
-        tvOpponentName.setText("ASeta opponensi nimi tähän"); //TODO: get name with function
-        tvOpponentStats.setText(currentBattle.getOpponentStats());
-        //ivOpponentImage.setImageIcon(); //TODO: get picture
+        tvBattleLog.setText("Ladattu kissa: " + playerCat.getName() + "\n");
+        pbOwnHealth.setProgress(playerCat.getCurrHPinPercentage());
+        gameIsRunning = false;
+        playerHasClicked = false;
+
+        if (playerCat.getCurrHP() == 0){
+            tvBattleLog.append("Sinulla ei ole yhtään hp:ta ja taistelu ei voi alkaa\n");
+        } else {
+            ProfessionalSchool professionalSchool = ProfessionalSchool.getInstance();
+            tvBattleLog.append("Taistelu numero: " + professionalSchool.getBattleNumber() + "\n");
+            currentBattle = new Battle(playerCat);
+            pbOpponentHealth.setProgress(currentBattle.getOpponentCatHpInPercentage());
+            tvOpponentName.setText(currentBattle.getOpponentCatName());
+            tvOpponentStats.setText(currentBattle.getOpponentStats());
+            ivOpponentImage.setImageResource(currentBattle.getOpponentCatPicID());
+            preBattleAttack = playerCat.getAttackPower();
+            preBattleDefence = playerCat.getDefencePower();
+            preBattleLuck = playerCat.getLuck();
+        }
+
     }
 
 
 
     public int endOfTurnHandling(){
+        pbOwnHealth.setProgress(playerCat.getCurrHPinPercentage());
+        pbOpponentHealth.setProgress(currentBattle.getOpponentCatHpInPercentage());
+
         //check if game ended
         if (currentBattle.isBattleEnded()){
+            gameIsRunning = false;
+            playerHasClicked = true; //if battle ends after player turn, player must have clicked, required as battle count does not increase after wins without this
             endOfGame();
             return 0;
         }
 
-        //if game did not end do computer turn
+        //if not ended, do computer turn
+        tvBattleLog.append(currentBattle.computerAction()+"\n");
+        pbOwnHealth.setProgress(playerCat.getCurrHPinPercentage());
+        pbOpponentHealth.setProgress(currentBattle.getOpponentCatHpInPercentage());
+
+        tvBattleLog.append("\n");
+
 
         //check if game ended
+        if (currentBattle.isBattleEnded()){
+            gameIsRunning = false;
+            endOfGame();
+            return 0;
+        }
 
 
         return 0;
     }
 
     public void endOfGame(){
+        tvBattleLog.append("Peli päättyi. \n");
+        playerCat = currentBattle.getPlayerCat();
+        Toast.makeText(getView().getContext(), Boolean.toString(playerHasClicked), Toast.LENGTH_SHORT).show();
+        if (playerHasClicked) {
+            playerCat.increaseMatchcount();
+            ProfessionalSchool.getInstance().increaseBattleNumber();
+
+
+            int matchEndReason = currentBattle.getMatchEndStatus(); // 1 = player ran, 2 = computer ran, 3 = player died, 4 = computer died, 0= error
+
+            if (matchEndReason == 1){
+                tvBattleLog.append("Juoksit pois ja hävisit\n");
+                playerCat.increaseLossCount();
+            } else if (matchEndReason == 2){
+                tvBattleLog.append("Vastustaja juoksi pois ja voitit. Peli päättyi.\n");
+                playerCat.increaseWinCount();
+            } else if (matchEndReason == 3){
+                tvBattleLog.append(("Kisseltä loppu elämäpisteet. Hävisit.\n"));
+                playerCat.increaseLossCount();
+            } else if (matchEndReason == 4){
+                tvBattleLog.append("Vastustajalta loppui elämäpisteet. Voitit.\n");
+                playerCat.increaseWinCount();
+            } else if (matchEndReason == 5){
+                System.out.println("error from battle.java");
+            } else {
+                System.out.println("Error from battlescreen.java");
+            }
+        }
+
+
+        //set cat changeable values back
+        playerCat.setAttackPower(preBattleAttack);
+        playerCat.setDefencePower(preBattleDefence);
+        playerCat.setLuck(preBattleLuck);
+
+        if (playerCat instanceof LogisticsMan){
+            ((LogisticsMan) playerCat).setAbilityDuration(0);
+        }
+
+        if (gameIsRunning){
+            playerCat.increaseLossCount();
+        }
+
+        gameIsRunning = false;
+        playerHasClicked = false;
+
 
 
     }
 
     public void playerAttack(){
-        tvBattleLog.append(currentBattle.c1_attack() + "\n");
-        tvOpponentStats.setText(currentBattle.getOpponentStats());
-        endOfTurnHandling();
-
+        if (currentBattle.isBattleEnded()){
+            tvBattleLog.append("Peli on päättynyt jo.\n");
+        } else {
+            gameIsRunning = true;
+            tvBattleLog.append(currentBattle.c1_attack() + "\n");
+            tvOpponentStats.setText(currentBattle.getOpponentStats());
+            endOfTurnHandling();
+        }
     }
 
     public void playerDefence(){
-        tvBattleLog.append(currentBattle.c1_defend());
-        endOfTurnHandling();
-
+        if (currentBattle.isBattleEnded()){
+            tvBattleLog.append("Peli on päättynyt jo.\n");
+        } else {
+            gameIsRunning = true;
+            playerHasClicked = true;
+            tvBattleLog.append(currentBattle.c1_defend() + "\n");
+            endOfTurnHandling();
+        }
     }
 
     public void playerAbility(){
-        tvBattleLog.append(currentBattle.c1_ability() + "\n");
-        endOfTurnHandling();
+        if (currentBattle.isBattleEnded()){
+            tvBattleLog.append("Peli on päättynyt jo.\n");
+        } else {
+            gameIsRunning = true;
+            playerHasClicked = true;
+            tvBattleLog.append(currentBattle.c1_ability() + "\n");
+            endOfTurnHandling();
+        }
     }
 
     public void playerRun(){
-        currentBattle.c1_run();
-        tvBattleLog.append("Juoksit pois taistelusta.\n");
-        endOfTurnHandling();
+        if (currentBattle.isBattleEnded()){
+            tvBattleLog.append("Peli on päättynyt jo.\n");
+        } else {
+            gameIsRunning = true;
+            currentBattle.c1_run();
+            playerHasClicked = true;
+            tvBattleLog.append("Juoksit pois taistelusta.\n");
+            endOfTurnHandling();
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
         isFragmentOpen = true;
+        pbOpponentHealth.setProgress(100);
         battleInitialisation();
 
 
@@ -150,6 +250,7 @@ public class Battlescreen extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         isFragmentOpen = false;
+        endOfGame();
 
     }
 
@@ -157,6 +258,7 @@ public class Battlescreen extends Fragment {
     public void onPause() {
         super.onPause();
         isFragmentOpen = false;
+        endOfGame();
     }
 
 
@@ -179,6 +281,8 @@ public class Battlescreen extends Fragment {
 
         pbOpponentHealth = view.findViewById(R.id.pbOpponentHealth);
         pbOwnHealth = view.findViewById(R.id.pbOwnHealth);
+        pbOpponentHealth.setVisibility(View.VISIBLE);
+        pbOwnHealth.setVisibility(View.VISIBLE);
 
         btAttack.setOnClickListener(new View.OnClickListener() {
             @Override

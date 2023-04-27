@@ -12,7 +12,7 @@ public class ProfessionalSchool {
     private HashMap<Integer, Cat> catStorageList = new HashMap<Integer, Cat>();
     private int orderNumberCat = 0;
     private int selectedCatPos;
-    private int battleNumber = 0;
+    private int battleNumber = 1;
 
     //Singleton
     private ProfessionalSchool() {
