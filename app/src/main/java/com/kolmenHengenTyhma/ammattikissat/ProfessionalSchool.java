@@ -12,6 +12,7 @@ public class ProfessionalSchool {
     private HashMap<Integer, Cat> catStorageList = new HashMap<Integer, Cat>();
     private int orderNumberCat = 0;
     private int selectedCatPos;
+    private int battleNumber = 0;
 
     //Singleton
     private ProfessionalSchool() {
@@ -50,6 +51,10 @@ public class ProfessionalSchool {
         catToHeal.heal();
     }
 
+    public void increaseBattleNumber(){
+        battleNumber = battleNumber + 1;
+    }
+
     //Getters
     public HashMap<Integer, Cat> getCatStorageList(){
         return catStorageList;
@@ -62,6 +67,10 @@ public class ProfessionalSchool {
     }
     public void setSelectedCatPos(int selectedCatPos) {
         this.selectedCatPos = selectedCatPos;
+    }
+
+    public int getBattleNumber() {
+        return battleNumber;
     }
 }
 

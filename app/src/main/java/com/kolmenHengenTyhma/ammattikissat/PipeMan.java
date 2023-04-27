@@ -10,10 +10,14 @@ public class PipeMan extends Cat {
 
     //actions
     @Override
-    public void uniqueAbility() {//Increases defence power +1 by consuming 1 attack point!
-        if (this.attackPower > 1) {
-            this.attackPower -= 1;
-            this.defencePower += 1;
+    public String uniqueAbility() {
+        int attackPowerDecrease = 1;
+        int defencePowerIncrease = 1;
+        if (this.attackPower > attackPowerDecrease) {
+            this.attackPower -= attackPowerDecrease;
+            this.defencePower += defencePowerIncrease;
         }
+
+        return ( "Käytit oman kyvyn. Sait " + defencePowerIncrease + "pistettä puollustusta lisää. (Ennen " + (this.defencePower-defencePowerIncrease) + ", nyt)" + this.defencePower + ". Menetit " + attackPowerDecrease + " verran hyökkäys voimaa. (Ennen " + this.attackPower+attackPowerDecrease + ", nyt " + this.attackPower + ").");
     }
 }

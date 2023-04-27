@@ -26,13 +26,13 @@ import com.kolmenHengenTyhma.ammattikissat.R;
 public class Battlescreen extends Fragment {
     private int test = 0; //TODO: remove after testing
     private Boolean btAttackPressed = false,btDefendPressed = false,btAbilityPressed = false,btRunPressed = false;
-    private Cat playerCat = new Cat("orange", 10, 10, 10, 10, 5); //TODO: get player chosen cat to battle screen
+    private Cat playerCat;
     private boolean isFragmentOpen;
     private Button btAttack, btDefend, btAbility, btRun;
     private TextView tvOpponentName, tvOpponentStats, tvBattleLog;
     private ImageView ivOpponentImage;
     private ProgressBar pbOpponentHealth, pbOwnHealth;
-    private Cat playerCat;
+    private Battle currentBattle;
 
 
 
@@ -77,38 +77,72 @@ public class Battlescreen extends Fragment {
 
     }
 
-    public void battleLoop(){
-        Battle currentBattle = new Battle();
-        do{
-            if (btAttackPressed){ //player actions
-                currentBattle.c1_attack();
-                currentBattle.computerAction();
-            } else if (btDefendPressed){
-                currentBattle.c1_defend();
-                currentBattle.computerAction();
-            } else if (btAbilityPressed){
-                currentBattle.c1_ability();
-                currentBattle.computerAction();
-            } else if (btRunPressed){
-                currentBattle.c1_run();
-                currentBattle.computerAction();
-            }
+    public void battleInitialisation(){
 
-            if (currentBattle.isBattleEnded()){
-                //TODO: end battle(currently battle ends when view ends)
-            }
+        ProfessionalSchool professionalSchool = ProfessionalSchool.getInstance();
+        professionalSchool.increaseBattleNumber();
+        tvBattleLog.setText("Taistelu numero: " + professionalSchool.getBattleNumber() + "\n");
+        playerCat = ProfessionalSchool.getInstance().chooseCat(ProfessionalSchool.getInstance().getSelectedCatPos());
+        tvBattleLog.append("Ladattu kissa: " + "Insert kissa nime"); //TODO: get name with function
+        Battle currentBattle = new Battle(playerCat);
+        tvOpponentName.setText("ASeta opponensi nimi tähän"); //TODO: get name with function
+        tvOpponentStats.setText(currentBattle.getOpponentStats());
+        //ivOpponentImage.setImageIcon(); //TODO: get picture
+    }
 
-        } while (isFragmentOpen); //TODO: remove while true
 
-        playerCat = currentBattle.getPlayerCat(); //set the player cat to be the one from battle after battle
+
+    public int endOfTurnHandling(){
+        //check if game ended
+        if (currentBattle.isBattleEnded()){
+            endOfGame();
+            return 0;
+        }
+
+        //if game did not end do computer turn
+
+        //check if game ended
+
+
+        return 0;
+    }
+
+    public void endOfGame(){
+
+
+    }
+
+    public void playerAttack(){
+        tvBattleLog.append(currentBattle.c1_attack() + "\n");
+        tvOpponentStats.setText(currentBattle.getOpponentStats());
+        endOfTurnHandling();
+
+    }
+
+    public void playerDefence(){
+        tvBattleLog.append(currentBattle.c1_defend());
+        endOfTurnHandling();
+
+    }
+
+    public void playerAbility(){
+        tvBattleLog.append(currentBattle.c1_ability() + "\n");
+        endOfTurnHandling();
+    }
+
+    public void playerRun(){
+        currentBattle.c1_run();
+        tvBattleLog.append("Juoksit pois taistelusta.\n");
+        endOfTurnHandling();
     }
 
     @Override
     public void onResume() {
         super.onResume();
         isFragmentOpen = true;
-        tvBattleLog.append("1");
-        playerCat = ProfessionalSchool.getInstance().chooseCat(ProfessionalSchool.getInstance().getSelectedCatPos());
+        battleInitialisation();
+
+
 
     }
 
@@ -116,7 +150,6 @@ public class Battlescreen extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         isFragmentOpen = false;
-        tvBattleLog.append("0");
 
     }
 
@@ -124,7 +157,6 @@ public class Battlescreen extends Fragment {
     public void onPause() {
         super.onPause();
         isFragmentOpen = false;
-        tvBattleLog.append("0");
     }
 
 
@@ -151,25 +183,25 @@ public class Battlescreen extends Fragment {
         btAttack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                btAttackPressed = true;
+                playerAttack();
             }
         });
         btDefend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                btDefendPressed = true;
+                playerDefence();
             }
         });
         btAbility.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                btAbilityPressed = true;
+                playerAbility();
             }
         });
         btRun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                btRunPressed = true;
+                playerRun();
             }
         });
 

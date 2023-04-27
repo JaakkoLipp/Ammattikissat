@@ -35,6 +35,9 @@ public class computerOpponent {
     public Cat getCat() {
         return cat;
     }
+    public String getStats(){
+        return ("Väri: " + cat.getColour() + "\n\nElämä pisteet: " + cat.getCurrHP() + "/" + cat.getMaxHP() + "\n\nHyökkäysvoima: " + cat.getAttackPower() + "\n\nPuolustus voima:" + cat.getDefencePower() + "\n\nOnni: " + cat.getLuck());
+    }
 
 
 }

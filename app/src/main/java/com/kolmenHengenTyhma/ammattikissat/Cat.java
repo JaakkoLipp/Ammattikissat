@@ -54,8 +54,8 @@ public class Cat {
             return false;
         }
     }
-    public void uniqueAbility() {
-        //TODO: default unique ability?
+    public String uniqueAbility() {
+        return ("how did you get here?");
     }
     public void takeDMG(int damage){
         if(currHP > damage){
@@ -84,6 +84,14 @@ public class Cat {
     }
     public void setLostMatches(int lostMatches) {
         this.lostMatches = lostMatches;
+    }
+    public String setToDefence(){
+        if (isInDefence){
+            return ("Olet jo puollustuksessa.");
+        } else {
+            isInDefence = true;
+            return ("Asetit itsesi puollustukseen. Vastustaja ei pysty hyökkäämään seuraavalla vuorolla.");
+        }
     }
 
     //getters

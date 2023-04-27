@@ -12,6 +12,7 @@ public class Battle {
 
     //constructor
     public Battle(Cat c1) {
+        this.c1 = c1;
         this.opponent = new computerOpponent();
         this.c2 = opponent.getCat();
 
@@ -19,19 +20,21 @@ public class Battle {
 
 
     //actions
-    public void c1_attack(){
+    public String c1_attack(){
+        int damage;
         if (c2.defend()){
-            System.out.println("Hyökkäys estetty.");
-            return;
+            return ("Vastustaja puollusti ja esti hyökkäyksen");
         } else {
-            c2.takeDMG(c1.getAttackDamage()-(c2.getDefencePower() / 2));//Damage calculation
+            damage = (c1.getAttackDamage()-(c2.getDefencePower() / 2));
+            c2.takeDMG(damage);//Damage calculation
+            return ("Teit " + damage + " vahinkoa.");
         }
     }
-    public void c1_defend(){
-        c1.defend();
+    public String c1_defend(){
+        return (c1.setToDefence());
     }
-    public void c1_ability(){
-        c1.uniqueAbility();
+    public String c1_ability(){
+        return(c1.uniqueAbility());
 
     }
     public void c1_run(){
@@ -78,5 +81,8 @@ public class Battle {
     }
     public Cat getPlayerCat() {
         return c1;
+    }
+    public String getOpponentStats(){
+        return opponent.getStats();
     }
 }

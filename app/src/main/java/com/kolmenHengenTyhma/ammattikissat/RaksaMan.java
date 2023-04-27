@@ -11,10 +11,15 @@ public class RaksaMan extends Cat{
 
     //actions
     @Override
-    public void uniqueAbility(){//Heal!
-        if(currHP+4<=maxHP) {
-            this.currHP += 4;
+    public String uniqueAbility(){//Heal!
+        int healAmmount = 4;
+        int hpBeforeHeal = this.currHP;
+        this.currHP += healAmmount;
+        if(currHP>=maxHP) {;
+            this.currHP = this.maxHP;
         }
+
+        return ("Käytit oman kyvyn. Terveytit kissasi(Max 4 hp). Elämäpisteesi on nyt " + currHP + ", ennen " + hpBeforeHeal + ".");
     }
 
 }

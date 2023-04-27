@@ -23,8 +23,11 @@ public class CarMan extends Cat{
     }
     @Override
 
-    public void uniqueAbility(){//Unique ability that increases luck by 3 points for next attack, CAN stack
+    public String uniqueAbility(){//Unique ability that increases luck by 3 points for next attack, CAN stack
         this.abilityDuration += 1;
+        String output = "Käytit oman kyvyn. Sinun tuuri on kasvanut vuoroksi kolmella(nousi " + this.luck + ":sta ";
         this.luck=3;//
+        output = output + this.luck + ":een";
+        return(output);
     }
 }
