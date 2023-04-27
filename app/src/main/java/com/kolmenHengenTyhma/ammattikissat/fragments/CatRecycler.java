@@ -37,13 +37,7 @@ public class CatRecycler extends Fragment {
     public CatRecycler() {
         // Required empty public constructor
     }
-    //resolves unupdating recycler
-    @Override
-    public void onResume() {
-        super.onResume();
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(new CatAdapter(CatList));
-    }
+    //Onresume resolves unupdating recycler?
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
