@@ -66,7 +66,9 @@ public class Battle {
 
         } else if (action == 3){ //computer ability
             c2.uniqueAbility();
-            return ("Vastustaja käytti oman kyvyn.");
+
+            String output = opponent.getAbilityMessageBasedOnCat();
+            return (output);
 
         } else if (action == 4){ //computer run
             c2HasRun = true;

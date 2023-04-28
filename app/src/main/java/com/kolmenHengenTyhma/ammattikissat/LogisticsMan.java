@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class LogisticsMan extends Cat{
     //atributes
     private int abilityDuration;
+    private int abilityDurationTime = 2;
+    private int abilityPowerIncrease = 2;
     //constructor
     public LogisticsMan(String colour) {
         super(colour, 14, 14, 3, 4, 2);
@@ -23,19 +25,26 @@ public class LogisticsMan extends Cat{
     }
     @Override
     public String uniqueAbility(){ //Increase attack power for following 2 attacks
-        int abilityDurationTime = 2;
-        int abilityPowerIncrease = 2;
 
         this.abilityDuration = abilityDurationTime;//this method does NOT stack for balance reasons //TODO: should make that clear ingame
         this.attackPower+=abilityPowerIncrease;
         //"Logiskissa attack power increased by 2 for 2 attacks!"
 
-        return ( "Käytit oman kyvyn. " + abilityDurationTime + " vuoron ajaksi hyökkäys voimasi on " + abilityPowerIncrease + " korkeampi (Hyökkäysvoima nyt: " + this.attackPower + ", hyökkäysvoima ennen: " + (this.attackPower-abilityPowerIncrease) + ")(Abilityn pituue ei voi kasvaa yli kahden useammalla käytöllä.)");
+        return ("Käytit oman kyvyn. " + abilityDurationTime + " vuoron ajaksi hyökkäys voimasi on " + this.attackPower + "(Hyökkäysvoima ennen: " + (this.attackPower-abilityPowerIncrease) + ")(Abilityn pituue ei voi kasvaa yli kahden useammalla käytöllä.)");
     }
 
     //setters
 
     public void setAbilityDuration(int abilityDuration) {
         this.abilityDuration = abilityDuration;
+    }
+
+    //getter
+    public int getAbilityDurationTime() {
+        return abilityDurationTime;
+    }
+
+    public int getAbilityPowerIncrease() {
+        return abilityPowerIncrease;
     }
 }

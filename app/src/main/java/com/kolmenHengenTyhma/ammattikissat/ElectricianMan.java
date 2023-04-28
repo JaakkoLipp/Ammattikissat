@@ -3,6 +3,9 @@ package com.kolmenHengenTyhma.ammattikissat;
 import java.util.ArrayList;
 
 public class ElectricianMan extends Cat{
+    //attributes
+    int takeDamage = 5;
+    int increasePower = 5;
     //constructor
     public ElectricianMan(String colour) {
         super(colour, 20, 20, 5, 2, 1);
@@ -18,5 +21,15 @@ public class ElectricianMan extends Cat{
         output = output + ("hyökkäys voimaisi nousi " + increasePower + " verran. (Ennen " + (this.attackPower-increasePower) + ").");
 
         return (output);
+    }
+
+    //getters
+
+    public int getTakeDamage() {
+        return takeDamage;
+    }
+
+    public int getIncreasePower() {
+        return increasePower;
     }
 }

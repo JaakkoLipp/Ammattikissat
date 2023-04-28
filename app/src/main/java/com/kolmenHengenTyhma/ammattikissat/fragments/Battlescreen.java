@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kolmenHengenTyhma.ammattikissat.Battle;
+import com.kolmenHengenTyhma.ammattikissat.CarMan;
 import com.kolmenHengenTyhma.ammattikissat.Cat;
 import com.kolmenHengenTyhma.ammattikissat.LogisticsMan;
 import com.kolmenHengenTyhma.ammattikissat.ProfessionalSchool;
@@ -111,6 +112,7 @@ public class Battlescreen extends Fragment {
     public int endOfTurnHandling(){
         pbOwnHealth.setProgress(playerCat.getCurrHPinPercentage());
         pbOpponentHealth.setProgress(currentBattle.getOpponentCatHpInPercentage());
+        tvOpponentStats.setText(currentBattle.getOpponentStats());
 
         //check if game ended
         if (currentBattle.isBattleEnded()){
@@ -124,6 +126,7 @@ public class Battlescreen extends Fragment {
         tvBattleLog.append(currentBattle.computerAction()+"\n");
         pbOwnHealth.setProgress(playerCat.getCurrHPinPercentage());
         pbOpponentHealth.setProgress(currentBattle.getOpponentCatHpInPercentage());
+        tvOpponentStats.setText(currentBattle.getOpponentStats());
 
         tvBattleLog.append("\n");
 
@@ -142,7 +145,6 @@ public class Battlescreen extends Fragment {
     public void endOfGame(){
         tvBattleLog.append("Peli päättyi. \n");
         playerCat = currentBattle.getPlayerCat();
-        Toast.makeText(getView().getContext(), Boolean.toString(playerHasClicked), Toast.LENGTH_SHORT).show();
         if (playerHasClicked) {
             playerCat.increaseMatchcount();
             ProfessionalSchool.getInstance().increaseBattleNumber();
@@ -177,6 +179,10 @@ public class Battlescreen extends Fragment {
 
         if (playerCat instanceof LogisticsMan){
             ((LogisticsMan) playerCat).setAbilityDuration(0);
+        }
+
+        if (playerCat instanceof CarMan){
+            ((CarMan) playerCat).setAbilityDuration(0);
         }
 
         if (gameIsRunning){
