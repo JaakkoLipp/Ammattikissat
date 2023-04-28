@@ -148,6 +148,9 @@ public class Cat {
     public void setLuck(double luck) {
         this.luck = luck;
     }
+    public void increaseTrainedDaysByOne(){
+        this.trainedDays = this.trainedDays + 1;
+    }
 
     //getters
     public int getMatches() {
@@ -180,5 +183,9 @@ public class Cat {
     }
     public int getCurrHPinPercentage(){
         return (currHP*100/maxHP*100)/100;
+    }
+
+    public int getTrainedDays() {
+        return trainedDays;
     }
 }
