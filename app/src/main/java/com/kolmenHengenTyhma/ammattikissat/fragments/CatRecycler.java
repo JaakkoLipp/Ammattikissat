@@ -44,10 +44,10 @@ public class CatRecycler extends Fragment {
     //Onresume resolves unupdating recycler
     @Override
     public void onResume() {
-        ProfessionalSchool.getInstance().loadCats(context);
+
         super.onResume();
         // Update the contents of the fragment's views or data here
-        recyclerView.getAdapter().notifyItemChanged(ProfessionalSchool.getInstance().getSelectedCatPos());
+        CatAdapt.notifyItemChanged(ProfessionalSchool.getInstance().getSelectedCatPos());
         // new cat -> refresh recycler, data:
         HashMap<Integer, Cat> catStorageList = ProfessionalSchool.getInstance().getCatStorageList();
         CatList = new ArrayList<Cat>(catStorageList.values());
@@ -98,6 +98,8 @@ public class CatRecycler extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(CatAdapt);
         context = getActivity().getApplicationContext();
+        // issue of skill spölves
+        ProfessionalSchool.getInstance().loadCats(context);
         return view;
     }
 }

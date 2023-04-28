@@ -11,6 +11,7 @@ public class Cat implements Serializable {
     protected int defencePower;
     protected String colour;
     protected int currHP;
+    protected static final long serialVersionUID = 24274298L;
     protected int maxHP;
     protected boolean isInDefence = false;
     protected double luck; //LUCK is calculated in points, should be between 0 and 10
