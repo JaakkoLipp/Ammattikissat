@@ -11,7 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:background="#E82E2E"
         android:fontFamily="@font/montserrat_semibold"
         android:text="Ammattikissat"
@@ -53,6 +53,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,16 +72,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/raksakissaf"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/raksakissaf" />
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/sahkissaf"
-                android:scaleType="centerCrop"  />
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/sahkissaf" />
 
         </LinearLayout>
 
@@ -94,16 +96,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/putkissaf"
-                android:scaleType="centerCrop"  />
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/putkissaf" />
 
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/logiskissaf"
-                android:scaleType="centerCrop"  />
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/logiskissaf" />
 
         </LinearLayout>
 

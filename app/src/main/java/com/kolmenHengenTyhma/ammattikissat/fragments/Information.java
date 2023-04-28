@@ -37,6 +37,7 @@ public class Information extends Fragment {
     private ProgressBar currHP;
     private View view;
     private TextView tvWinLoss;
+    private TextView catColour;
     private ImageView ivprofile;
     private Button healButton;
     private Button trainButton;
@@ -99,6 +100,7 @@ public class Information extends Fragment {
         name = cat.getName();
         tvCatName.setText(name);
         colour = cat.getColour();
+        catColour.setText(colour);
         currentHP = cat.getCurrHP();
         maxHP = cat.getMaxHP();
         attackPower = cat.getAttackPower();
@@ -108,7 +110,7 @@ public class Information extends Fragment {
         losses = cat.getLostMatches();
         matches = cat.getMatches();
         trainingDays = cat.getTrainedDays();
-        tvCatEverything.setText("Väri: " + colour + "\n\nTaistellut ottelut: " + matches + "\n\nElämä pisteet: " + currentHP + "/" + maxHP + "\n\nHyökkäysvoima: " + attackPower + "\n\nPuolustus voima:" + defencePower + "\n\nOnni: " + luck + "\n\nTreenatut päivät: " + trainingDays);
+        tvCatEverything.setText("Taistellut ottelut: " + matches + "\n\nElämä pisteet: " + currentHP + "/" + maxHP + "\n\nHyökkäysvoima: " + attackPower + "\n\nPuolustus voima:" + defencePower + "\n\nOnni: " + luck + "\n\nTreenatut päivät: " + trainingDays);
         tvWinLoss.setText("Voitot/Häviöt\n" + wins + "/" + losses);
         currHP.setVisibility(View.VISIBLE);
         currHP.setProgress(cat.getCurrHPinPercentage());
@@ -128,6 +130,7 @@ public class Information extends Fragment {
         healButton = view.findViewById(R.id.btHeal);
         trainButton = view.findViewById(R.id.btTrain);
         currHP = view.findViewById(R.id.pbHP);
+        catColour = view.findViewById(R.id.tvColour);
         getCatData(cat);
         healButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,7 +146,6 @@ public class Information extends Fragment {
             public void onClick(View v) {
                 // Do something when the button is clicked
                 ProfessionalSchool.getInstance().trainCat(ProfessionalSchool.getInstance().getSelectedCatPos());
-                cat.increaseTrainedDaysByOne();
                 getCatData(cat);
 
 
