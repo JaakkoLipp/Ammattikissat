@@ -32,37 +32,54 @@ MIT License Copyright (c) [2023] [Kolmen Hengen Tyhmä]
 
 Project artwork created using Hotpot.ai
 
-## Alpha 0.0.1 Cats:
+## Game mechanics
+### Tuuri
+Pelissä on luck/tuuri/onni. Tämä esiintyy sillä, että hyökätessä todennäköisyys kriittiseen osumaan (2 extra hyökkäys pistettä kyseiseen hyökkäykseen) lasketatan onnesta kaavalla: random.nextInt(10)+luck > 6 .Siten siis todennäköisyys on 33% + tuurin aiheuttama painotus
 
-### Töikissa (Raksa): “perus kissa”
-- Oranssi (tyhmä)
-- 20 lp.
-- 4 atk.
-- 6 def.
-Abilities:
-- Vastuunvälttö(+2hp) [Mild healing]
-- 
-### Putkissa (Putkissa): high stat, low skill
-- ?
-- 24 lp.
-- 6 atk.
-- 8 def.
-- 
-Abilities:
-- Putki päällä (+2atk)
+### Vahingonotto 
+Pelissä vahingonotto noudattaa seuraavaa kaavaa damage = AttackDamage-(DefencePower/2)
 
-### Gonakissa (Logiskiskiskistiikka): high skill low stat
-- Harmaa
-- 14 lp.
-- 3 atk.
-- 4 def.
-- 2 luck
-- 
-Abilities:
-- Grillisafka (+3hp) [Medium healing]
-- Töistöistöis (+3atk, 2 turns)
-- 
+## Alpha 0.2.0 Cats:
 
+### Töikissa (Raksa):
+- 20 hp
+- 4 atk
+- 6 def
+- 1 lck
+Ability:
+- Terveytä maksimissaan 4 elämäpistettä.
+
+### Putkissa (LVI-kissa):
+- 24 hp
+- 6 atk
+- 8 def
+- 0 lck
+Ability:
+- Vaihda yksi attack piste yhteen defenceen
+
+### Logiskiskiskistiikka (Logistiikka): high skill low stat
+- 14 hp
+- 3 atk
+- 4 def
+- 2 lck
+Ability:
+- 2 extra hyökkäys pistettä seuraavaksi kahdeksi vuoroksi
+
+### Sähkökisse (Sähkö)
+- 20 hp
+- 5 atk
+- 2 def
+- 1 lck
+Ability:
+- Kasvata hyökkäystä viidellä pisteellä, viiden elämäpisteen kustannuksella
+
+### Autokissa (Auto)
+- 18 hp
+- 8 atk
+- 4 def
+- 0 lck
+Ability:
+- Kasvata tuuria kolmella yhden vuoron ajaksi
 
 ![meme](kissa.png)
 
