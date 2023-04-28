@@ -96,24 +96,24 @@ public class ProfessionalSchool {
             catWriter.writeObject(catStorageList);
             catWriter.close();
         } catch (IOException e) {
-            System.out.println("Rakettien tallentaminen ei onnistunut");
+            System.out.println("Kissojen tallentaminen ei onnistunut");
         }
 
     }
 
     public void loadCats(Context context){
         try {
-            ObjectInputStream catReader = new ObjectInputStream(context.openFileInput("rockets.data"));
+            ObjectInputStream catReader = new ObjectInputStream(context.openFileInput("cats.data"));
             catStorageList = (HashMap<Integer, Cat>) catReader.readObject();
             catReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Rakettien lukeminen ei onnistunut");
+            System.out.println("Kissojen lukeminen ei onnistunut1");
             e.printStackTrace();
         } catch (IOException e) {
-            System.out.println("Rakettien lukeminen ei onnistunut");
+            System.out.println("Kissojen lukeminen ei onnistunut2");
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            System.out.println("Rakettien lukeminen ei onnistunut");
+            System.out.println("Kissojen lukeminen ei onnistunut3");
             e.printStackTrace();
 
         }
