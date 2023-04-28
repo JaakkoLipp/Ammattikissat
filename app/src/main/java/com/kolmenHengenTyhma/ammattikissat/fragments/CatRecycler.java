@@ -37,7 +37,13 @@ public class CatRecycler extends Fragment {
     public CatRecycler() {
         // Required empty public constructor
     }
-    //Onresume resolves unupdating recycler?
+    //Onresume resolves unupdating recycler
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Update the contents of the fragment's views or data here
+        recyclerView.getAdapter().notifyItemChanged(ProfessionalSchool.getInstance().getSelectedCatPos());
+    }
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
