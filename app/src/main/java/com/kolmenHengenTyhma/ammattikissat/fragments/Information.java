@@ -1,5 +1,6 @@
 package com.kolmenHengenTyhma.ammattikissat.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -56,6 +57,7 @@ public class Information extends Fragment {
     private int losses = cat.getLostMatches();
     private int matches = cat.getMatches();
     private int trainingDays = cat.getTrainedDays();
+    private Context context;
     public Information() {
         // Required empty public constructor
     }
@@ -131,6 +133,7 @@ public class Information extends Fragment {
         trainButton = view.findViewById(R.id.btTrain);
         currHP = view.findViewById(R.id.pbHP);
         catColour = view.findViewById(R.id.tvColour);
+        context = getActivity().getApplicationContext();
         getCatData(cat);
         healButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,6 +142,7 @@ public class Information extends Fragment {
                 ProfessionalSchool.getInstance().healCat(ProfessionalSchool.getInstance().getSelectedCatPos());
                 currHP.setProgress(cat.getCurrHPinPercentage());
                 getCatData(cat);
+                ProfessionalSchool.getInstance().saveCats(context);
             }
         });
         trainButton.setOnClickListener(new View.OnClickListener() {
@@ -147,6 +151,7 @@ public class Information extends Fragment {
                 // Do something when the button is clicked
                 ProfessionalSchool.getInstance().trainCat(ProfessionalSchool.getInstance().getSelectedCatPos());
                 getCatData(cat);
+                ProfessionalSchool.getInstance().saveCats(context);
 
 
             }

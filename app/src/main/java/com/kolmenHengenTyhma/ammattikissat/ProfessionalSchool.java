@@ -24,11 +24,13 @@ public class ProfessionalSchool {
     //Singleton
     private ProfessionalSchool() {
         // TODO: temp cats remove
-        RaksaMan remontter = new RaksaMan("Vaalea");
-        CarMan carCat = new CarMan("Ruskea");
-        carCat.takeDMG(5);
-        catStorageList.put(0,remontter);
-        catStorageList.put(1,carCat);
+        if (catStorageList.size() == 0) {
+            RaksaMan remontter = new RaksaMan("Vaalea");
+            CarMan carCat = new CarMan("Ruskea");
+            carCat.takeDMG(5);
+            catStorageList.put(0, remontter);
+            catStorageList.put(1, carCat);
+        }
         orderNumberCat = catStorageList.size();
     }
     public static ProfessionalSchool getInstance() {
