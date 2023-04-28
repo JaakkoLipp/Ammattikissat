@@ -70,14 +70,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/raksakissaf" />
+                app:srcCompat="@drawable/raksakissaf"
+                android:scaleType="centerCrop" />
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/sahkissaf" />
+                app:srcCompat="@drawable/sahkissaf"
+                android:scaleType="centerCrop"  />
 
         </LinearLayout>
 
@@ -92,14 +94,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/putkissaf" />
+                app:srcCompat="@drawable/putkissaf"
+                android:scaleType="centerCrop"  />
 
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/logiskissaf" />
+                app:srcCompat="@drawable/logiskissaf"
+                android:scaleType="centerCrop"  />
 
         </LinearLayout>
 
