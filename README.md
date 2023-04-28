@@ -13,13 +13,13 @@ Päätimme hieman laajentaa vaadittua tehtävänantoa lisäämällä muutamia om
 #### Elämäpistepalkit
 Kaikissa näytöissä sekä pelaajan omien kissojen, että tarvittaessa vastustajan kissan elämäpisteet on visuaalisesti esitetty elämäpistepalkilla, joka päivittyy reaaliajassa.
 
-#### tietokonevastustaja ja todellinen pelaaminen
+#### Tietokonevastustaja ja todellinen pelaaminen
 Taistelu ei ole simuloitu kahden tietokoneen välillä niinkuin, tehtävänannossa suositelttiin toteuttaamaan. Tämän sijaan taistelunäkymässä pelaaja saa taistelupeleille tyypillisesti valita mitä tekee, jonka jälkeen tietokone vastaa painontetulla satunnaiseti valitulla arvolla samoista vaihtoehdoista.
 
 #### AI generoidut kissakuvat
 Kissojen kuvat on generoitu AI:n avulla uniikin ja hyvän ulkonäön saavuttamiseksi.
 
-#### kissojen uniikit omat kyvyt.
+#### Kissojen uniikit omat kyvyt.
 Jokaisella kissalla on uniikki kyky joita sekä pelaaja, että vastustaja voi käyttää. Näiden uniikkien kykyjen tarkemmat tiedot löytyy alhaalta kissojen statiikoista.
 
 ### Demo
