@@ -108,7 +108,7 @@ public class Battlescreen extends Fragment {
             tvBattleLog.append("Taistelu numero: " + professionalSchool.getBattleNumber() + "\n");
             currentBattle = new Battle(playerCat);
             pbOpponentHealth.setProgress(currentBattle.getOpponentCatHpInPercentage());
-            tvOpponentName.setText(currentBattle.getOpponentCatName());
+            tvOpponentName.setText("Vastustaja: " + currentBattle.getOpponentCatName());
             tvOpponentStats.setText(currentBattle.getOpponentStats());
             ivOpponentImage.setImageResource(currentBattle.getOpponentCatPicID());
             preBattleAttack = playerCat.getAttackPower();

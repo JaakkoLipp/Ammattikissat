@@ -57,17 +57,17 @@ public class computerOpponent {
             int defencePowerIncrease = ((PipeMan) cat).getDefencePowerIncrease();
             int defencePower = cat.getDefencePower();
             int attackPower = cat.getAttackPower();
-            return ("Vastustaja käytti oman kyvyn. Vastustaja sai " + defencePowerIncrease + "pistettä puollustusta lisää. (Ennen " + (defencePower-defencePowerIncrease) + ", nyt)" + defencePower + ". Vastustaja menetti " + attackPowerDecrease + " verran hyökkäys voimaa. (Ennen " + attackPower+attackPowerDecrease + ", nyt " + attackPower + ").");
+            return ("Vastustaja käytti oman kyvyn. Vastustaja sai " + defencePowerIncrease + " pistettä puollustusta lisää. (Ennen " + (defencePower-defencePowerIncrease) + ", nyt " + defencePower + "). Vastustaja menetti " + attackPowerDecrease + " verran hyökkäys voimaa. (Ennen " + (attackPower+attackPowerDecrease) + ", nyt " + attackPower + ").");
         } else if (cat instanceof CarMan){
             double catLuck = cat.getLuck();
             int abilityDurationIncrease = ((CarMan) cat).getAbilityDurationIncrease();
             double luckIncrease = ((CarMan) cat).getLuckIncrease();
-            return ("Vastustaja käytti oman kyvyn. Hänen tuuri on noussut arvoon" + catLuck + "(Ennen " + (catLuck-luckIncrease) + "). Tämä kestää " + abilityDurationIncrease + " vuoroa.");
+            return ("Vastustaja käytti oman kyvyn. Hänen tuuri on noussut arvoon " + catLuck + " (Ennen " + (catLuck-luckIncrease) + "). Tämä kestää " + abilityDurationIncrease + " vuoroa.");
         } else if (cat instanceof LogisticsMan){
             int abilityDurationTime = ((LogisticsMan) cat).getAbilityDurationTime();
             int abilityPowerIncrease = ((LogisticsMan) cat).getAbilityPowerIncrease();
             int catAttackPower = cat.getAttackPower();
-            return ("Vastustaja käytti oman kyvyn. " + abilityDurationTime + " vuoron ajaksi vastustajan hyökkäysvoima on " + catAttackPower + ".korkeampi (Hyökkäysvoima ennen: " + (catAttackPower-abilityPowerIncrease) + ")(Abilityn pituue ei voi kasvaa yli kahden useammalla käytöllä.)");
+            return ("Vastustaja käytti oman kyvyn. " + abilityDurationTime + " vuoron ajaksi vastustajan hyökkäysvoima on " + catAttackPower + " korkeampi (Hyökkäysvoima ennen: " + (catAttackPower-abilityPowerIncrease) + ")(Abilityn pituus ei voi kasvaa yli kahden useammalla käytöllä.)");
         } else if (cat instanceof RaksaMan){
             int currentHP = cat.getCurrHP();
             int healtBeforeheal = ((RaksaMan) cat).getHpBeforeHeal();
