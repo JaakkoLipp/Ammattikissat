@@ -23,7 +23,6 @@ public class ProfessionalSchool {
 
     //Singleton
     private ProfessionalSchool() {
-        // TODO: temp cats remove
         if (catStorageList.size() == 0) {
             RaksaMan remontter = new RaksaMan("Vaalea");
             CarMan carCat = new CarMan("Ruskea");

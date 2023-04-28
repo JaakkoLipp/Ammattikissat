@@ -24,9 +24,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, HomeScreen.class);
         startActivity(intent);
     }
-    // TODO: KEEP CODE IN MAIN MINIMAL
-    // TODO: - HOME Fragments
-    // TODO: - call cat info fragment swap from cat recycler selection
     @Override
     public void onDestroy() {
         Log.d("MusicService", "onDestroy()");
