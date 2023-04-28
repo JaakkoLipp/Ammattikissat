@@ -1,5 +1,11 @@
 package com.kolmenHengenTyhma.ammattikissat;
 
+import android.content.Context;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -81,6 +87,36 @@ public class ProfessionalSchool {
         System.out.println("Kissa lisätty + " + catStorageList.size());
 
 
+    }
+
+    //catlist file handling
+    public void saveCats(Context context){
+        try {
+            ObjectOutputStream catWriter = new ObjectOutputStream(context.openFileOutput("cats.data", Context.MODE_PRIVATE));
+            catWriter.writeObject(catStorageList);
+            catWriter.close();
+        } catch (IOException e) {
+            System.out.println("Rakettien tallentaminen ei onnistunut");
+        }
+
+    }
+
+    public void loadCats(Context context){
+        try {
+            ObjectInputStream catReader = new ObjectInputStream(context.openFileInput("rockets.data"));
+            catStorageList = (HashMap<Integer, Cat>) catReader.readObject();
+            catReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Rakettien lukeminen ei onnistunut");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Rakettien lukeminen ei onnistunut");
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            System.out.println("Rakettien lukeminen ei onnistunut");
+            e.printStackTrace();
+
+        }
     }
 
     //Getters
