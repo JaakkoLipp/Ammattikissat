@@ -11,8 +11,28 @@ public class computerOpponent {
     private double propabilityRun = 0.05;
 
     public computerOpponent(){
-        this.cat = new ElectricianMan("Oranse"); //TODO: add randomization and cat classes to computer
+        Random r = new Random();
+        int randomInt = r.nextInt(5);
+        switch (randomInt) {
+            case 0:
+                this.cat = new CarMan("Vastustaja orangse");
+                break;
+            case 1:
+                this.cat = new ElectricianMan("Vastustaja orangse");
+                break;
+            case 2:
+                this.cat = new LogisticsMan("Vastustaja orangse");
+                break;
+            case 3:
+                this.cat = new PipeMan("Vastustaja orangse");
+                break;
+            case 4:
+                this.cat = new RaksaMan("Vastustaja orangse");
+                break;
+        }
 
+
+        this.cat = new ElectricianMan("Vastustaja orangse");
     }
 
     //actions
