@@ -181,7 +181,6 @@ public class Battlescreen extends Fragment {
                 tvBattleLog.append("Vastustaja juoksi pois ja voitit. Peli päättyi.\n");
                 playerCat.increaseWinCount();
                 ps.addNewRandomCat();
-                ProfessionalSchool.getInstance().saveCats(context); //TODO: check that cats save and load properly
             } else if (matchEndReason == 3){
                 tvBattleLog.append(("Kisseltä loppu elämäpisteet. Hävisit.\n"));
                 playerCat.increaseLossCount();
@@ -189,7 +188,6 @@ public class Battlescreen extends Fragment {
                 tvBattleLog.append("Vastustajalta loppui elämäpisteet. Voitit.\n");
                 playerCat.increaseWinCount();
                 ps.addNewRandomCat();
-                ProfessionalSchool.getInstance().saveCats(context); //TODO: check that cats save and load properly
             } else if (matchEndReason == 5){
                 System.out.println("error from battle.java");
             } else {
@@ -217,6 +215,8 @@ public class Battlescreen extends Fragment {
 
         gameIsRunning = false;
         playerHasClicked = false;
+
+        ProfessionalSchool.getInstance().saveCats(context);
         scrollBattleLog();
 
 
