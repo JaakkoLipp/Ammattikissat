@@ -108,6 +108,7 @@ public class Cat {
     }
 
     public void train(){
+        // Train limit + multiplied by winned games #50
         if(2*wonMatches+1 >= trainedDays){
             // randomize the attribute to +1
             int rng= random.nextInt(3);
