@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kolmenHengenTyhma.ammattikissat.CarMan;
 import com.kolmenHengenTyhma.ammattikissat.Cat;
@@ -149,7 +150,10 @@ public class Information extends Fragment {
             @Override
             public void onClick(View v) {
                 // Do something when the button is clicked
-                ProfessionalSchool.getInstance().trainCat(ProfessionalSchool.getInstance().getSelectedCatPos());
+                String output = ProfessionalSchool.getInstance().trainCat(ProfessionalSchool.getInstance().getSelectedCatPos());
+                if (output.equals("Et pysty harjoittamaan tällä hetkellä.")){
+                    Toast.makeText(v.getContext(), "Et pysty harjoittamaan tällä hetkellä", Toast.LENGTH_SHORT).show();
+                }
                 getCatData(cat);
                 ProfessionalSchool.getInstance().saveCats(context);
 
