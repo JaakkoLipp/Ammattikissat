@@ -100,5 +100,8 @@ public class ProfessionalSchool {
     public int getBattleNumber() {
         return battleNumber;
     }
+    public int getCatListLen(){
+        return catStorageList.size();
+    }
 }
 

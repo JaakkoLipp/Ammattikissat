@@ -36,7 +36,9 @@ public class CatAdapter extends RecyclerView.Adapter<CatViewHolder>{
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cat_view, parent, false);
         return new CatViewHolder(view);
     }
-
+    public void updateList(ArrayList<Cat> catList){
+        this.catStorageList = catList;
+    }
     @Override
     public void onBindViewHolder(@NonNull CatViewHolder holder, int position) {
         if (position == selectedItemPosition) {
