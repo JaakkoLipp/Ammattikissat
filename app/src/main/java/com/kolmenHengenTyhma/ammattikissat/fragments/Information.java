@@ -113,7 +113,7 @@ public class Information extends Fragment {
         losses = cat.getLostMatches();
         matches = cat.getMatches();
         trainingDays = cat.getTrainedDays();
-        tvCatEverything.setText("Taistellut ottelut: " + matches + "\n\nElämä pisteet: " + currentHP + "/" + maxHP + "\n\nHyökkäysvoima: " + attackPower + "\n\nPuolustus voima:" + defencePower + "\n\nOnni: " + luck + "\n\nTreenatut päivät: " + trainingDays);
+        tvCatEverything.setText("Taistellut ottelut: " + matches + "\n\nElämäpisteet: " + currentHP + "/" + maxHP + "\n\nHyökkäysvoima: " + attackPower + "\n\nPuolustusvoima: " + defencePower + "\n\nOnni: " + luck + "\n\nTreenatut päivät: " + trainingDays);
         tvWinLoss.setText("Voitot/Häviöt\n" + wins + "/" + losses);
         currHP.setVisibility(View.VISIBLE);
         currHP.setProgress(cat.getCurrHPinPercentage());
