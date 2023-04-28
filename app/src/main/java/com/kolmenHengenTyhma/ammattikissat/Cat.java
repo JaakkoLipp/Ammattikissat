@@ -69,7 +69,6 @@ public class Cat implements Serializable {
         }
     }
     public String getName(){
-        // TODO: fix patent solutions
         String name = "Not Found";
         if (this instanceof ElectricianMan){
             name = "Sähkökissa";
@@ -87,7 +86,6 @@ public class Cat implements Serializable {
         return name;
     }
     public int getCatPic(){
-        // TODO: fix patent solutions
         int id;
         if (this instanceof ElectricianMan){
             id = R.drawable.sahkissa_nobg;

@@ -18,9 +18,6 @@
             android:name=".CatView"
             android:exported="false" />
         <activity
-            android:name=".Battlescreen_Activity"
-            android:exported="false" />
-        <activity
             android:name=".HomeScreen"
             android:exported="false" />
         <activity

@@ -92,7 +92,6 @@ public class CatRecycler extends Fragment {
         View view = inflater.inflate(R.layout.fragment_cat_recycler, container, false);
         recyclerView = view.findViewById(R.id.CatRecyclerView);
         prevListLenght = ProfessionalSchool.getInstance().getCatListLen();
-        //TODO: Pass Hashmap to fragment then pass to view holder then to adapter
         HashMap<Integer, Cat> catStorageList = ProfessionalSchool.getInstance().getCatStorageList();
         CatList = new ArrayList<Cat>(catStorageList.values());
         CatAdapt = new CatAdapter(CatList);

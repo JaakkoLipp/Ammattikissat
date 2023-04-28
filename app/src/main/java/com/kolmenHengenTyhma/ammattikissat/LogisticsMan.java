@@ -21,12 +21,12 @@ public class LogisticsMan extends Cat{
                 attackPower=-2;
             }
         }
-        return super.getAttackDamage();//TODO : test if this shizzle works, i think so
+        return super.getAttackDamage();
     }
     @Override
     public String uniqueAbility(){ //Increase attack power for following 2 attacks
 
-        this.abilityDuration = abilityDurationTime;//this method does NOT stack for balance reasons //TODO: should make that clear ingame
+        this.abilityDuration = abilityDurationTime;//this method does NOT stack for balance reasons
         this.attackPower+=abilityPowerIncrease;
         //"Logiskissa attack power increased by 2 for 2 attacks!"
 

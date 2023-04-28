@@ -33,7 +33,6 @@ import java.util.Random;
  * create an instance of this fragment.
  */
 public class Battlescreen extends Fragment {
-    private int test = 0; //TODO: remove after testing
     private Boolean btAttackPressed = false,btDefendPressed = false,btAbilityPressed = false,btRunPressed = false;
     private Cat playerCat;
     private boolean isFragmentOpen;
