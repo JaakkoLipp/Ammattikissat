@@ -44,7 +44,7 @@ public class Information extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private Cat cat = new Cat("orangse", 20, 20, 20, 20, 20); //TODO: Add custom cat getting
+    private Cat cat = new Cat("orangse", 20, 20, 20, 20, 20); //this is a base value incase of error getting cat
     private String colour = cat.getColour();
     private int currentHP = cat.getCurrHP();
     private int maxHP = cat.getMaxHP();
@@ -54,6 +54,7 @@ public class Information extends Fragment {
     private int wins = cat.getWonMatches();
     private int losses = cat.getLostMatches();
     private int matches = cat.getMatches();
+    private int trainingDays = cat.getTrainedDays();
     public Information() {
         // Required empty public constructor
     }
@@ -96,7 +97,7 @@ public class Information extends Fragment {
         // idk i guess this works patent
         ivprofile.setImageResource(cat.getCatPic());
         name = cat.getName();
-        tvCatName.setText(name); //TODO: once cat integration works, remove aAAAAAaa
+        tvCatName.setText(name);
         colour = cat.getColour();
         currentHP = cat.getCurrHP();
         maxHP = cat.getMaxHP();
@@ -106,7 +107,8 @@ public class Information extends Fragment {
         wins = cat.getWonMatches();
         losses = cat.getLostMatches();
         matches = cat.getMatches();
-        tvCatEverything.setText("Väri: " + colour + "\n\nTaistellut ottelut: " + matches + "\n\nElämä pisteet: " + currentHP + "/" + maxHP + "\n\nHyökkäysvoima: " + attackPower + "\n\nPuolustus voima:" + defencePower + "\n\nOnni: " + luck);
+        trainingDays = cat.getTrainedDays();
+        tvCatEverything.setText("Väri: " + colour + "\n\nTaistellut ottelut: " + matches + "\n\nElämä pisteet: " + currentHP + "/" + maxHP + "\n\nHyökkäysvoima: " + attackPower + "\n\nPuolustus voima:" + defencePower + "\n\nOnni: " + luck + "\n\nTreenatut päivät: " + trainingDays);
         tvWinLoss.setText("Voitot/Häviöt\n" + wins + "/" + losses);
         currHP.setVisibility(View.VISIBLE);
         currHP.setProgress(cat.getCurrHPinPercentage());
@@ -122,7 +124,7 @@ public class Information extends Fragment {
         tvCatName = view.findViewById(R.id.tvCatName); //initialize fragment elements
         tvCatEverything = view.findViewById(R.id.tvStats);
         tvWinLoss = view.findViewById(R.id.tvWL);
-        ivprofile = view.findViewById(R.id.ivCatPicture); //TODO: add changing cat pircure
+        ivprofile = view.findViewById(R.id.ivCatPicture);
         healButton = view.findViewById(R.id.btHeal);
         trainButton = view.findViewById(R.id.btTrain);
         currHP = view.findViewById(R.id.pbHP);
@@ -141,7 +143,10 @@ public class Information extends Fragment {
             public void onClick(View v) {
                 // Do something when the button is clicked
                 ProfessionalSchool.getInstance().trainCat(ProfessionalSchool.getInstance().getSelectedCatPos());
+                cat.increaseTrainedDaysByOne();
                 getCatData(cat);
+
+
             }
         });
 
