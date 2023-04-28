@@ -143,7 +143,6 @@ public class Information extends Fragment {
             public void onClick(View v) {
                 // Do something when the button is clicked
                 ProfessionalSchool.getInstance().trainCat(ProfessionalSchool.getInstance().getSelectedCatPos());
-                cat.increaseTrainedDaysByOne();
                 getCatData(cat);
 
 

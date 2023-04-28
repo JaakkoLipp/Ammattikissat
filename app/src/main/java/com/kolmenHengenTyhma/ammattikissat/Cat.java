@@ -106,8 +106,22 @@ public class Cat {
     public void heal(){
         currHP = maxHP;
     }
+
     public void train(){
-        attackPower = attackPower + 1;
+        if(2*wonMatches+1 >= trainedDays){
+            // randomize the attribute to +1
+            int rng= random.nextInt(3);
+            if(rng == 0){
+                defencePower+=1;
+                System.out.println("Training attribute: "+rng);
+            } else if(rng == 1){
+                maxHP+=1;
+                System.out.println("Training attribute: "+rng);
+            }else{
+                attackPower += 1;
+            }
+            trainedDays = trainedDays + 1;
+        }
     }
 
     //setters
@@ -147,9 +161,6 @@ public class Cat {
 
     public void setLuck(double luck) {
         this.luck = luck;
-    }
-    public void increaseTrainedDaysByOne(){
-        this.trainedDays = this.trainedDays + 1;
     }
 
     //getters
