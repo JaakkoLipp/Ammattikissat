@@ -2,6 +2,7 @@ package com.kolmenHengenTyhma.ammattikissat;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 
 public class ProfessionalSchool {
@@ -27,6 +28,7 @@ public class ProfessionalSchool {
         catStorageList.put(1, POIPEMAN);
         catStorageList.put(2,REMONGER);
         catStorageList.put(3,CARCAT);
+        orderNumberCat = 4;
 
     }
     public static ProfessionalSchool getInstance() {
@@ -41,11 +43,7 @@ public class ProfessionalSchool {
         Cat cat = chooseCat(pos);
         cat.train();
     }
-    public void addCat(String colour, int currHP, int maxHP, int attackPower, int defencePower, double luck, ArrayList<String> statistics){
-        Cat newCat;
-        catStorageList.put(orderNumberCat, null);
-        orderNumberCat+=1;
-    }
+
     public void healCat(int pos){
         Cat catToHeal = chooseCat(pos);
         catToHeal.heal();
@@ -53,6 +51,36 @@ public class ProfessionalSchool {
 
     public void increaseBattleNumber(){
         battleNumber = battleNumber + 1;
+    }
+    public void addNewRandomCat(){
+        Cat newCat = new LogisticsMan("Black");
+
+        Random r = new Random();
+        int randomInt = r.nextInt(5);
+        switch (randomInt) {
+            case 0:
+                newCat = new CarMan("Kirkkaan oranssi");
+                break;
+            case 1:
+                newCat = new ElectricianMan("sininen");
+                break;
+            case 2:
+                newCat = new LogisticsMan("Mustavalkoinen");
+                break;
+            case 3:
+                newCat = new PipeMan("Vihreä");
+                break;
+            case 4:
+                newCat = new RaksaMan("Valkoinen");
+                break;
+        }
+
+
+        catStorageList.put(orderNumberCat, newCat);
+        orderNumberCat+=1;
+        System.out.println("Kissa lisätty + " + catStorageList.size());
+
+
     }
 
     //Getters
