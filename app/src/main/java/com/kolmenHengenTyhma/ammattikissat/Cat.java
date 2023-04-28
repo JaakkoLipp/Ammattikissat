@@ -12,7 +12,7 @@ public class Cat {
     protected int currHP;
     protected int maxHP;
     protected boolean isInDefence = false;
-    protected double luck;//LUCK is calculated in points, should be between 0 and 10
+    protected double luck; //LUCK is calculated in points, should be between 0 and 10
     protected int matches;
     protected int wonMatches;
     protected int lostMatches;
