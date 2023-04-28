@@ -106,7 +106,7 @@ public class Cat implements Serializable {
         currHP = maxHP;
     }
 
-    public void train(){
+    public String train(){
         // Train limit + multiplied by winned games #50
         if(2*wonMatches+1 >= trainedDays){
             // randomize the attribute to +1
@@ -121,7 +121,11 @@ public class Cat implements Serializable {
                 attackPower += 1;
             }
             trainedDays = trainedDays + 1;
+
+            return "";
         }
+
+        return ("Et pysty harjoittamaan tällä hetkellä.");
     }
 
     //setters

@@ -40,9 +40,9 @@ public class ProfessionalSchool {
     }
 
     //Actions
-    public void trainCat(int pos){
+    public String trainCat(int pos){
         Cat cat = chooseCat(pos);
-        cat.train();
+        return cat.train();
     }
 
     public void healCat(int pos){
