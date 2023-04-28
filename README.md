@@ -27,7 +27,8 @@ Pelissä on pirteä taustamusiikki parantamassa pelikokemusta.
 [YouTube](https://www.youtube.com/watch?v=DzFXGsRvSwA)
 
 ### Demo
-Tässä demovideo proejektista: 
+Tässä demovideo proejektista:
+[Demo Video](https://www.youtube.com/watch?v=EgjsHO0FWEE)
 
 ## Pelimekaniikat
 ### Tuuri
