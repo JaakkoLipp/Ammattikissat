@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class computerOpponent {
     //attributes
-    Cat cat;
+    Cat cat = new ElectricianMan("orangse"); //preset value incase something goes wrong in constructor
     private double propabilityAttack = 0.5; //all probabilities must sum to 1
     private double propabilityDefend = 0.3;
     private double propabilityAbility = 0.15;
@@ -15,24 +15,21 @@ public class computerOpponent {
         int randomInt = r.nextInt(5);
         switch (randomInt) {
             case 0:
-                this.cat = new CarMan("Vastustaja orangse");
+                this.cat = new CarMan("orangse");
                 break;
             case 1:
-                this.cat = new ElectricianMan("Vastustaja orangse");
+                this.cat = new ElectricianMan("orangse");
                 break;
             case 2:
-                this.cat = new LogisticsMan("Vastustaja orangse");
+                this.cat = new LogisticsMan("orangse");
                 break;
             case 3:
-                this.cat = new PipeMan("Vastustaja orangse");
+                this.cat = new PipeMan("orangse");
                 break;
             case 4:
-                this.cat = new RaksaMan("Vastustaja orangse");
+                this.cat = new RaksaMan("orangse");
                 break;
         }
-
-
-        this.cat = new ElectricianMan("Vastustaja orangse");
     }
 
     //actions
