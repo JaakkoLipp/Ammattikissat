@@ -99,6 +99,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
         <ScrollView
+            android:id="@+id/swBattleLog"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"

@@ -12,7 +12,7 @@ public class Cat {
     protected int currHP;
     protected int maxHP;
     protected boolean isInDefence = false;
-    protected double luck;//LUCK is calculated in points, should be between 0 and 10
+    protected double luck; //LUCK is calculated in points, should be between 0 and 10
     protected int matches;
     protected int wonMatches;
     protected int lostMatches;
@@ -95,7 +95,7 @@ public class Cat {
         } else if (this instanceof CarMan) {
             id = R.drawable.autokissa_nobg;
         } else if (this instanceof LogisticsMan) {
-            id = R.drawable.autokissa_nobg;
+            id = R.drawable.logiskissa_nobg;
         } else if (this instanceof RaksaMan) {
             id = R.drawable.raksakissa_nobg;
         } else {

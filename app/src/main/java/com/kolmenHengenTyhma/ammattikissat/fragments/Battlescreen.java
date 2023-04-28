@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class Battlescreen extends Fragment {
     private double preBattleLuck;
     private boolean gameIsRunning;
     private boolean playerHasClicked; //used for checking if player has interacted in current game
+    private ScrollView swBattleLog;
 
 
 
@@ -83,6 +85,15 @@ public class Battlescreen extends Fragment {
 
     }
 
+    public void scrollBattleLog(){
+        swBattleLog.post(new Runnable() {
+            @Override
+            public void run() {
+                swBattleLog.fullScroll(View.FOCUS_DOWN);
+            }
+        });
+    }
+
     public void battleInitialisation(){
         playerCat = ProfessionalSchool.getInstance().chooseCat(ProfessionalSchool.getInstance().getSelectedCatPos());
         tvBattleLog.setText("Ladattu kissa: " + playerCat.getName() + "\n");
@@ -97,7 +108,7 @@ public class Battlescreen extends Fragment {
             tvBattleLog.append("Taistelu numero: " + professionalSchool.getBattleNumber() + "\n");
             currentBattle = new Battle(playerCat);
             pbOpponentHealth.setProgress(currentBattle.getOpponentCatHpInPercentage());
-            tvOpponentName.setText(currentBattle.getOpponentCatName());
+            tvOpponentName.setText("Vastustaja: " + currentBattle.getOpponentCatName());
             tvOpponentStats.setText(currentBattle.getOpponentStats());
             ivOpponentImage.setImageResource(currentBattle.getOpponentCatPicID());
             preBattleAttack = playerCat.getAttackPower();
@@ -110,6 +121,7 @@ public class Battlescreen extends Fragment {
 
 
     public int endOfTurnHandling(){
+        scrollBattleLog();
         pbOwnHealth.setProgress(playerCat.getCurrHPinPercentage());
         pbOpponentHealth.setProgress(currentBattle.getOpponentCatHpInPercentage());
         tvOpponentStats.setText(currentBattle.getOpponentStats());
@@ -129,6 +141,7 @@ public class Battlescreen extends Fragment {
         tvOpponentStats.setText(currentBattle.getOpponentStats());
 
         tvBattleLog.append("\n");
+        scrollBattleLog();
 
 
         //check if game ended
@@ -192,6 +205,7 @@ public class Battlescreen extends Fragment {
 
         gameIsRunning = false;
         playerHasClicked = false;
+        scrollBattleLog();
 
 
 
@@ -200,6 +214,7 @@ public class Battlescreen extends Fragment {
     public void playerAttack(){
         if (currentBattle.isBattleEnded()){
             tvBattleLog.append("Peli on päättynyt jo.\n");
+            scrollBattleLog();
         } else {
             gameIsRunning = true;
             tvBattleLog.append(currentBattle.c1_attack() + "\n");
@@ -211,6 +226,7 @@ public class Battlescreen extends Fragment {
     public void playerDefence(){
         if (currentBattle.isBattleEnded()){
             tvBattleLog.append("Peli on päättynyt jo.\n");
+            scrollBattleLog();
         } else {
             gameIsRunning = true;
             playerHasClicked = true;
@@ -222,6 +238,7 @@ public class Battlescreen extends Fragment {
     public void playerAbility(){
         if (currentBattle.isBattleEnded()){
             tvBattleLog.append("Peli on päättynyt jo.\n");
+            scrollBattleLog();
         } else {
             gameIsRunning = true;
             playerHasClicked = true;
@@ -233,6 +250,7 @@ public class Battlescreen extends Fragment {
     public void playerRun(){
         if (currentBattle.isBattleEnded()){
             tvBattleLog.append("Peli on päättynyt jo.\n");
+            scrollBattleLog();
         } else {
             gameIsRunning = true;
             currentBattle.c1_run();
@@ -290,6 +308,8 @@ public class Battlescreen extends Fragment {
         pbOwnHealth = view.findViewById(R.id.pbOwnHealth);
         pbOpponentHealth.setVisibility(View.VISIBLE);
         pbOwnHealth.setVisibility(View.VISIBLE);
+
+        swBattleLog = view.findViewById(R.id.swBattleLog);
 
         btAttack.setOnClickListener(new View.OnClickListener() {
             @Override

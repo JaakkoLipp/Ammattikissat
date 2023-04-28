@@ -46,7 +46,7 @@ Pelissä vahingonotto noudattaa seuraavaa kaavaa damage = AttackDamage-(DefenceP
 - 4 atk
 - 6 def
 - 1 lck
-Ability:
+#### Ability:
 - Terveytä maksimissaan 4 elämäpistettä.
 
 ### Putkissa (LVI-kissa):
@@ -54,7 +54,7 @@ Ability:
 - 6 atk
 - 8 def
 - 0 lck
-Ability:
+#### Ability:
 - Vaihda yksi attack piste yhteen defenceen
 
 ### Logiskiskiskistiikka (Logistiikka): high skill low stat
@@ -62,7 +62,7 @@ Ability:
 - 3 atk
 - 4 def
 - 2 lck
-Ability:
+#### Ability:
 - 2 extra hyökkäys pistettä seuraavaksi kahdeksi vuoroksi
 
 ### Sähkökisse (Sähkö)
@@ -70,7 +70,7 @@ Ability:
 - 5 atk
 - 2 def
 - 1 lck
-Ability:
+#### Ability:
 - Kasvata hyökkäystä viidellä pisteellä, viiden elämäpisteen kustannuksella
 
 ### Autokissa (Auto)
@@ -78,7 +78,7 @@ Ability:
 - 8 atk
 - 4 def
 - 0 lck
-Ability:
+#### Ability:
 - Kasvata tuuria kolmella yhden vuoron ajaksi
 
 ![meme](kissa.png)
