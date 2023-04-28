@@ -95,7 +95,7 @@ public class Cat {
         } else if (this instanceof CarMan) {
             id = R.drawable.autokissa_nobg;
         } else if (this instanceof LogisticsMan) {
-            id = R.drawable.autokissa_nobg;
+            id = R.drawable.logiskissa_nobg;
         } else if (this instanceof RaksaMan) {
             id = R.drawable.raksakissa_nobg;
         } else {
