@@ -48,7 +48,7 @@ Pelissä vahingonotto noudattaa seuraavaa kaavaa damage = AttackDamage-(DefenceP
 - 1 lck
 Ability:
 - Terveytä maksimissaan 4 elämäpistettä.
-- 
+
 ### Putkissa (LVI-kissa):
 - 24 hp
 - 6 atk

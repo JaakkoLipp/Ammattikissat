@@ -134,6 +134,7 @@ public class Battlescreen extends Fragment {
         //check if game ended
         if (currentBattle.isBattleEnded()){
             gameIsRunning = false;
+            playerHasClicked = true; //player must have clicked to get to here, required as battle count does not increase after wins without this
             endOfGame();
             return 0;
         }
