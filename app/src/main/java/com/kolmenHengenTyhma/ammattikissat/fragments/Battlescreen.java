@@ -1,5 +1,6 @@
 package com.kolmenHengenTyhma.ammattikissat.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -46,6 +47,7 @@ public class Battlescreen extends Fragment {
     private boolean gameIsRunning;
     private boolean playerHasClicked; //used for checking if player has interacted in current game
     private ScrollView swBattleLog;
+    private Context context;
 
 
 
@@ -179,7 +181,7 @@ public class Battlescreen extends Fragment {
                 tvBattleLog.append("Vastustaja juoksi pois ja voitit. Peli päättyi.\n");
                 playerCat.increaseWinCount();
                 ps.addNewRandomCat();
-                ProfessionalSchool.getInstance().saveCats(this.getContext()); //TODO: check that cats save and load properly
+                ProfessionalSchool.getInstance().saveCats(context); //TODO: check that cats save and load properly
             } else if (matchEndReason == 3){
                 tvBattleLog.append(("Kisseltä loppu elämäpisteet. Hävisit.\n"));
                 playerCat.increaseLossCount();
@@ -187,7 +189,7 @@ public class Battlescreen extends Fragment {
                 tvBattleLog.append("Vastustajalta loppui elämäpisteet. Voitit.\n");
                 playerCat.increaseWinCount();
                 ps.addNewRandomCat();
-                ProfessionalSchool.getInstance().saveCats(this.getContext()); //TODO: check that cats save and load properly
+                ProfessionalSchool.getInstance().saveCats(context); //TODO: check that cats save and load properly
             } else if (matchEndReason == 5){
                 System.out.println("error from battle.java");
             } else {
@@ -318,6 +320,7 @@ public class Battlescreen extends Fragment {
         pbOwnHealth = view.findViewById(R.id.pbOwnHealth);
         pbOpponentHealth.setVisibility(View.VISIBLE);
         pbOwnHealth.setVisibility(View.VISIBLE);
+        context = getActivity().getApplicationContext();
 
         swBattleLog = view.findViewById(R.id.swBattleLog);
 

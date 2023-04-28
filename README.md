@@ -8,7 +8,7 @@ Ammattikissat on yksinkertainen taistelupeli ammatti aiheisten kissojen kanssa.
 Ammattikissa pelissä pelaajalla on kissoja joita hän voi kouluttaa tai terveyttää, sekä joiden kanssa pelaaja voi taistella tietokonetta vastaan. Ohjelma koostuu kolmesta eri pääfragmentista: kissat, tiedot ja taistelu. Pelaaja valistee kissan painamalla sitä kissa näytössä, jonka jälkeen pelaaja voi mennä tiedeot näyttöön kastomaan kissan tilastoja, sekä suorittamaan terveyttämistä tai treenaamista. Pelaaja voi myös mennä taisteluun ja taistella tietokonetta vastaan. Valittu kissa pysyy valittuna kunnes uusi kissa valitaan.
 
 ### Omat ominaisuudet
-Päätimme hieman laajentaa vaadittua tehtävänantoa lisäämällä muutamia omia ominaisuuksia. Näihin kuuluu elämäpistepalkit, tietokonevastustaja, todellinen pelaaminen, AI generoidut kissakuvat ja kissojen uniikit omat kyvyt.
+Päätimme hieman laajentaa vaadittua tehtävänantoa lisäämällä muutamia omia ominaisuuksia. Näihin kuuluu elämäpistepalkit, tietokonevastustaja, todellinen pelaaminen, AI generoidut kissakuvat, kissojen uniikit omat kyvyt ja taustamusiikki.
 
 #### Elämäpistepalkit
 Kaikissa näytöissä sekä pelaajan omien kissojen, että tarvittaessa vastustajan kissan elämäpisteet on visuaalisesti esitetty elämäpistepalkilla, joka päivittyy reaaliajassa.
@@ -21,6 +21,9 @@ Kissojen kuvat on generoitu AI:n avulla uniikin ja hyvän ulkonäön saavuttamis
 
 #### Kissojen uniikit omat kyvyt.
 Jokaisella kissalla on uniikki kyky joita sekä pelaaja, että vastustaja voi käyttää. Näiden uniikkien kykyjen tarkemmat tiedot löytyy alhaalta kissojen statiikoista.
+
+#### Taustamusiikki
+Pelissä on pirteä taustamusiikki parantamassa pelikokemusta.
 
 ### Demo
 Tässä demovideo proejektista: 

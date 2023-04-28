@@ -1,10 +1,11 @@
 package com.kolmenHengenTyhma.ammattikissat;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
 
-public class Cat {
+public class Cat implements Serializable {
     // Attributes
     protected int attackPower;
     protected int defencePower;
