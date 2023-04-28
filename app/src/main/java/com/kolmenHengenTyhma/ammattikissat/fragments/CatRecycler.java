@@ -1,5 +1,6 @@
 package com.kolmenHengenTyhma.ammattikissat.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +15,7 @@ import com.kolmenHengenTyhma.ammattikissat.Cat;
 import com.kolmenHengenTyhma.ammattikissat.ProfessionalSchool;
 import com.kolmenHengenTyhma.ammattikissat.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -35,12 +37,14 @@ public class CatRecycler extends Fragment {
     private ArrayList<Cat> CatList;
     private int prevListLenght;
     private CatAdapter CatAdapt;
+    private Context context;
     public CatRecycler() {
         // Required empty public constructor
     }
     //Onresume resolves unupdating recycler
     @Override
     public void onResume() {
+        ProfessionalSchool.getInstance().loadCats(context);
         super.onResume();
         // Update the contents of the fragment's views or data here
         recyclerView.getAdapter().notifyItemChanged(ProfessionalSchool.getInstance().getSelectedCatPos());
@@ -82,6 +86,7 @@ public class CatRecycler extends Fragment {
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cat_recycler, container, false);
@@ -93,6 +98,7 @@ public class CatRecycler extends Fragment {
         CatAdapt = new CatAdapter(CatList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(CatAdapt);
+        context = getActivity().getApplicationContext();
         return view;
     }
 }
