@@ -17,9 +17,14 @@ import android.widget.Toast;
 import com.kolmenHengenTyhma.ammattikissat.Battle;
 import com.kolmenHengenTyhma.ammattikissat.CarMan;
 import com.kolmenHengenTyhma.ammattikissat.Cat;
+import com.kolmenHengenTyhma.ammattikissat.ElectricianMan;
 import com.kolmenHengenTyhma.ammattikissat.LogisticsMan;
+import com.kolmenHengenTyhma.ammattikissat.PipeMan;
 import com.kolmenHengenTyhma.ammattikissat.ProfessionalSchool;
 import com.kolmenHengenTyhma.ammattikissat.R;
+import com.kolmenHengenTyhma.ammattikissat.RaksaMan;
+
+import java.util.Random;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -157,11 +162,12 @@ public class Battlescreen extends Fragment {
     }
 
     public void endOfGame(){
+        ProfessionalSchool ps = ProfessionalSchool.getInstance();
         tvBattleLog.append("Peli päättyi. \n");
         playerCat = currentBattle.getPlayerCat();
         if (playerHasClicked) {
             playerCat.increaseMatchcount();
-            ProfessionalSchool.getInstance().increaseBattleNumber();
+            ps.getInstance().increaseBattleNumber();
 
 
             int matchEndReason = currentBattle.getMatchEndStatus(); // 1 = player ran, 2 = computer ran, 3 = player died, 4 = computer died, 0= error
@@ -172,12 +178,14 @@ public class Battlescreen extends Fragment {
             } else if (matchEndReason == 2){
                 tvBattleLog.append("Vastustaja juoksi pois ja voitit. Peli päättyi.\n");
                 playerCat.increaseWinCount();
+                ps.addNewRandomCat();
             } else if (matchEndReason == 3){
                 tvBattleLog.append(("Kisseltä loppu elämäpisteet. Hävisit.\n"));
                 playerCat.increaseLossCount();
             } else if (matchEndReason == 4){
                 tvBattleLog.append("Vastustajalta loppui elämäpisteet. Voitit.\n");
                 playerCat.increaseWinCount();
+                ps.addNewRandomCat();
             } else if (matchEndReason == 5){
                 System.out.println("error from battle.java");
             } else {
