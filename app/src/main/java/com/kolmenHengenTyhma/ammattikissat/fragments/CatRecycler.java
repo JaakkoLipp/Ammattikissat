@@ -33,7 +33,8 @@ public class CatRecycler extends Fragment {
     private String mParam1;
     private String mParam2;
     private ArrayList<Cat> CatList;
-
+    private int prevListLenght;
+    private CatAdapter CatAdapt;
     public CatRecycler() {
         // Required empty public constructor
     }
@@ -43,6 +44,16 @@ public class CatRecycler extends Fragment {
         super.onResume();
         // Update the contents of the fragment's views or data here
         recyclerView.getAdapter().notifyItemChanged(ProfessionalSchool.getInstance().getSelectedCatPos());
+        // new cat -> refresh recycler, data:
+        HashMap<Integer, Cat> catStorageList = ProfessionalSchool.getInstance().getCatStorageList();
+        CatList = new ArrayList<Cat>(catStorageList.values());
+        System.out.println(CatList);
+        //logic
+        if(ProfessionalSchool.getInstance().getCatListLen() > prevListLenght){
+            CatAdapt.updateList(CatList);
+            CatAdapt.notifyItemInserted(CatList.size()-1);
+            prevListLenght =ProfessionalSchool.getInstance().getCatListLen();
+        }
     }
     /**
      * Use this factory method to create a new instance of
@@ -75,11 +86,13 @@ public class CatRecycler extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cat_recycler, container, false);
         recyclerView = view.findViewById(R.id.CatRecyclerView);
+        prevListLenght = ProfessionalSchool.getInstance().getCatListLen();
         //TODO: Pass Hashmap to fragment then pass to view holder then to adapter
         HashMap<Integer, Cat> catStorageList = ProfessionalSchool.getInstance().getCatStorageList();
         CatList = new ArrayList<Cat>(catStorageList.values());
+        CatAdapt = new CatAdapter(CatList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(new CatAdapter(CatList));
+        recyclerView.setAdapter(CatAdapt);
         return view;
     }
 }
